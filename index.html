@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digikala</title>
+  <link rel="icon" type="image/x-icon" href="./Images/favicon.ico">
+  <link rel="stylesheet" href="./src/tailwind/tailwind.css">
+  <link rel="stylesheet" href="./node_modules/swiper/swiper-bundle.min.css">
+</head>
+
+<body>
+  <!--Project Start-->
+
+  <!--header mobile Start-->
+  <div class="lg:hidden sticky top-0 left-0 bannerZindex shadow-sm pb-3 bg-white">
+    <div class="header__Banner w-full h-[30px] bg-[#CC1335] flex justify-center items-center bannerZindex">
+      <div class="header__Banner__CountDown w-[130px] h-[40px] flex justify-between items-center z-30">
+        <div class="header__Banner__CountDown__second counter-box"></div>
+        <span class="text-white font-bold text-[20px]">:</span>
+        <div class="header__Banner__CountDown__minute counter-box"></div>
+        <span class="text-white font-bold text-[20px]">:</span>
+        <div class="header__Banner__CountDown__hour counter-box"></div>
+      </div><!--timer-->
+    </div>
+    <div class="w-full flex justify-center items-center py-4 bg-white">
+      <div class="w-[95%] h-[40px] flex  bg-[#F0F0F1] rounded-3xl py-3">
+        <div class=" h-full w-[50px] flex justify-center items-center"><img src="./public/Images/SVG/SearchIcon.svg"
+            alt="SearchIcon" width="25"></div>
+        <input class="w-full h-full py-2 text-sm bg-[#F0F0F1] rounded-3xl outline-none" type="text" name="desktopSearch"
+          id="desktopSearch" placeholder="جستجو">
+      </div>
+    </div>
+    <div class="HeaderToggleDiv hidden w-full h-screen fixed top-0 bg-black/20 bannerZindex ">
+    </div>
+    <button class="HeaderToggleButton w-[93%] m-auto flex justify-between items-center gap-1 bg-white">
+      <div class="flex items-center gap-2"><img src="./Images/SVG/location.svg" alt="location">
+        <div class="text-[12px] text-black leading-[30px] deliveryCity ">انتخاب شهر</div>
+      </div>
+      <img src="./public/Images/SVG/toLeftArrowBlack.svg" alt="">
+    </button>
+  </div>
+  <div
+    class="bannerZindex lg:hidden w-full h-[50px] fixed bottom-0 shadow-md shadow-black flex justify-around items-center bg-white">
+    <a class="flex flex-col items-center" href="">
+      <img src="./Images/SVG/homePage.svg" alt="home">
+      <div class="text-[12px]">خانه</div>
+    </a>
+    <a class="flex flex-col items-center" href="#">
+      <img src="./Images/SVG/categorize.svg" alt="home">
+      <div class="text-[12px]">دسته بندی</div>
+    </a>
+    <a class="flex flex-col items-center" href="#">
+      <img src="./Images/SVG/shopCard.svg" alt="home">
+      <div class="text-[12px]">سبد خرید</div>
+    </a>
+    <a class="flex flex-col items-center" href="#">
+      <img src="./Images/SVG/profile.svg" alt="home">
+      <div class="text-[12px]">دیجیکالا من</div>
+    </a>
+  </div>
+  <!--header mobile End-->
+
+  <!--header Desktop Start-->
+  <div class="hidden lg:block sticky top-0 left-0 bannerZindex shadow-gray-400 shadow-sm">
+    <div class="h-[57px] bg-white ">
+      <img src="./Images/header/banner.png" alt="banner" class="h-[57px] object-cover">
+    </div>
+    <div class="relative">
+      <div class="w-full px-[20px]  lg:flex justify-between bg-white HeaderZindexOne relative">
+        <div class="p-[10px] flex gap-[10px]">
+          <img width="195px" height="30px" src="./Images/SVG/digikalaIcon.svg" alt="Icon">
+          <div class="w-[540px] h-[40px] flex  bg-[#F0F0F1] rounded-lg">
+            <div class=" h-full w-[50px] flex justify-center items-center"><img src="./public/Images/SVG/SearchIcon.svg"
+                alt="SearchIcon" width="25"></div>
+            <input class="w-full h-full py-2 text-sm bg-[#F0F0F1] rounded-lg outline-none" type="text"
+              name="desktopSearch" id="desktopSearch" placeholder="جستجو">
+          </div>
+        </div>
+        <div class="flex gap-4 items-center">
+          <div class="w-fit p-[7px] rounded-lg border-solid border-[0.7px] border-black/40 flex items-center gap-1">
+            <img src="./Images/SVG/loginIcon.svg" alt="">
+            <div class="text-[13px]">ورود | ثبت نام</div>
+          </div>
+          <span class="w-[0.5px] h-[25px] bg-black/40 block"></span>
+          <div><img src="./Images/SVG/cardShop.svg" alt=""></div>
+        </div>
+      </div>
+      <div
+        class="w-full h-[32px] px-[30px] flex justify-between items-cente bg-white absolute top-[60px] headerMenuTransition  HeaderZindexTwo shadow-md">
+        <div class="flex gap-3 items-center ">
+          <div class="relative ">
+            <button class="animatedLinkMain h-[32px] flex gap-2 justify-center items-center ml-3" id="menu-link">
+              <img width="24px" height="24px" src="./Images/SVG/hamburgerMenu.svg" alt="Hamburger Menu">
+              <div>دسته‌بندی‌ها</div>
+            </button>
+            <div id="overlayMenu"
+              class="bannerZindex w-full hCostumSubMenu hidden fixed right-0 bottom-0 bg-black bg-opacity-50 z-10">
+            </div>
+            <div id="submenu"
+              class="bannerZindex hidden fixed top-[147px] right-[25px] w-[80vw] h-[60vh] bg-white z-20  borderMenu overflow-hidden">
+              <div class="flex h-full">
+                <div class="w-[18%] h-full bg-[#F0F0F1]  MegaMenuItems flex flex-col overflow-y-auto "
+                  id="categories-list">
+                </div>
+                <div class="w-[82%]  flex gap-6 p-3 overflow-y-auto" id="item-details">
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="block bg-black/20 w-[1px] h-[15px]"></span>
+          <a class="animatedLink  flex items-center justify-center gap-1 pb-1" href="#">
+            <img width="17px" height="17px" src="./Images/SVG/AmazingPage.svg" alt="amazingPage">
+            <div class="text-[13px] text-[#A1A3A8]">شگفت انگیزها
+            </div>
+          </a>
+          <a class="animatedLink  flex items-center justify-center gap-1 pb-1" href="#">
+            <img width="17px" height="17px" src="./Images/SVG/superMarket.svg" alt="amazingPage">
+            <div class="text-[13px] text-[#A1A3A8]">سوپرمارکت
+            </div>
+          </a>
+          <a class="animatedLink  flex items-center justify-center gap-1 pb-1" href="#">
+            <img width="17px" height="17px" src="./Images/SVG/giftCard.svg" alt="amazingPage">
+            <div class="text-[13px] text-[#A1A3A8]">کارت هدیه
+            </div>
+          </a>
+          <a class="animatedLink  flex items-center justify-center gap-1 pb-1" href="#">
+            <img width="17px" height="17px" src="./Images/SVG/mostSell.svg" alt="amazingPage">
+            <div class="text-[13px] text-[#A1A3A8]">پرفروش ترین
+            </div>
+          </a>
+          <a class="animatedLink  flex items-center justify-center gap-1 pb-1" href="#">
+            <img width="17px" height="17px" src="./Images/SVG/offers.svg" alt="amazingPage">
+            <div class="text-[13px] text-[#A1A3A8]">تخفیف ها و پسشنهادات
+            </div>
+          </a>
+          <span class="block bg-black/20 w-[1px] h-[15px]"></span>
+          <a class="animatedLink  flex items-center justify-center gap-1 pb-1" href="#">
+            <div class="text-[13px] text-[#A1A3A8]">سوالی دارید؟
+            </div>
+          </a>
+          <a class="animatedLink hidden  xl:flex items-center justify-center gap-1 pb-1" href="#">
+            <div class="text-[13px] text-[#A1A3A8]">در دیجیکالا بفروشید!
+            </div>
+          </a>
+        </div>
+        <button class="flex items-center gap-1 HeaderToggleButton">
+          <img src="./Images/SVG/location.svg" alt="location">
+          <div class="text-[13px] text-black/40 deliveryCity ">انتخاب شهر</div>
+        </button>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="HeaderToggleDiv hidden w-full h-screen fixed top-0  bg-black/20 bannerZindex ">
+  </div>
+  <div
+    class="hidden w-full h-screen rounded-none lg:w-[400px] lg:h-[80vh] fixed top-[50%] left-[50%] bg-white lg:rounded-xl CenterItem bannerZindex overflow-hidden HeaderToggleDiv">
+    <div class="flex justify-between items-center p-4">
+      <div class="font-bold">انتخاب شهر</div>
+      <button class="CrossButtonHeader"><img src="./public/Images/SVG/Cross.svg" alt="cross"></button>
+    </div>
+    <hr>
+    <div class="w-full ">
+      <div class="w-[90%] h-[40px] m-auto flex rounded-3xl overflow-hidden bg-[#F0F0F1] mt-5">
+        <div class="w-[10%] h-[40px] flex justify-center items-center pr-2"><img
+            src="./public/Images/SVG/SearchIcon.svg" alt="searchICon" width="24"></div>
+        <input class="w-[90%] h-[40px] p-2 outline-none bg-[#F0F0F1] text-[12px]"
+          placeholder="جستجو در استان ها و شهر های تهران" type="text">
+      </div>
+      <div class="p-5 text-[14px]">برای مشاهده تخفیف‌ها و کالا‌های قابل ارسال به شهرتان، آن را انتخاب کنید.</div>
+      <div class="px-5">
+        <swiper-container class="popularCities" slides-per-view="4.5" space-between="0" free-mode="true">
+        </swiper-container>
+      </div>
+      <div class="allCiteis p-5 overflow-y-auto customHMobile  lg:customHDes mt-3" id="CityScrollCustom">
+      </div>
+    </div>
+  </div>
+
+  <!--header Desktop End-->
+
+  <!--Story Start-->
+  <div class="w-[95%] lg:w-[80%] h-[130px] m-auto lg:mt-[35px] ">
+    <div class="relative">
+      <swiper-container class="storySlider" slides-per-view="4" space-between="10" breakpoints='{
+          "400": {"slidesPerView": 5},
+          "640": {"slidesPerView": 6.2},
+          "768": {"slidesPerView": 7.5},
+          "900": {"slidesPerView": 9},
+          "1250": {"slidesPerView": 12.5}
+      }'>
+      </swiper-container>
+
+      <div class="custom-next"><img width="20px" height="20px" src="./Images/MainIcons/right-arrow.svg" alt="Next">
+      </div>
+      <div class="custom-prev"><img width="20px" height="20px" src="./Images/MainIcons/left-arrow.svg" alt="Prev">
+      </div>
+    </div>
+  </div>
+  <!--Story End-->
+
+  <!--Main Slider Start-->
+  <div class="mainSliderx w-[95%] lg:w-full m-auto my-[20px] relative">
+    <swiper-container style="
+      --swiper-pagination-color: #fff;
+      --swiper-pagination-progressbar-size: 4px;
+      --swiper-pagination-bullet-size:6px; 
+      --swiper-pagination-bullet-inactive-color: #000;
+      --swiper-pagination-bullet-inactive-opacity: 0.5; 
+      --swiper-pagination-bullet-opacity: 1;
+      --swiper-pagination-bullet-horizontal-gap: 5px;" class="mainSlider" pagination="true" pagination-clickable="true"
+      autoplay="true" speed="1200"></swiper-container>
+    <div class="custom-nextmainSlider"><img width="20px" height="20px" src="./Images/MainIcons/right-arrow.svg"
+        alt="Next">
+    </div>
+    <div class="custom-prevmainSlider"><img width="20px" height="20px" src="./Images/MainIcons/left-arrow.svg"
+        alt="Prev">
+    </div>
+  </div>
+  <!--Main Slider End-->
+
+  <!--Icon start-->
+  <div class="iconItems w-[95%] lg:w-[80%] h-fit m-auto flex flex-wrap justify-between items-center">
+    <button id="IconsToggle1"
+      class="w-[20%] lg:w-[10%] md:w-[18%] h-fit p-[20px] flex justify-between items-center flex-col gap-y-2">
+      <img width="52px" height="52px" src="./public/Images/icons/icon-10.png" alt="بیشتر">
+      <div class="h-[40px] text-[12px] text-center">بیشتر</div>
+    </button>
+  </div>
+  <div id="ToggleBox1" class="hidden fixed top-0 left-0 w-full h-screen bg-black/20 bannerZindex">
+  </div>
+  <div id="ToggleBox2"
+    class="hidden fixed top-[50%] left-[50%] bannerZindex w-full h-screen rounded-none lg:w-[700px] lg:h-[70vh] bg-white CenterItem lg:rounded-xl overflow-hidden">
+    <div class="h-[60px] p-4 flex justify-between items-center">
+      <div class="flex gap-2">
+        <img src="./public/Images/SVG/DigiSmile.svg" alt="Smile">
+        <div class="font-bold">خدمات دیجیکالا</div>
+      </div>
+      <button id="IconCloseCross"><img src="./public/Images/SVG/Cross.svg" alt="Cross"></button>
+    </div>
+    <hr>
+    <div class="overflow-y-auto hCustomDigiServicesMobile lg:hCustomDigiServicesDes">
+      <div class="HighlightDigiServeses flex flex-wrap justify-around items-start my-6">
+      </div>
+      <div class="text-black/50 text-[14px] p-5 font-bold">سرویس های گروه دیجیکالا</div>
+      <div class="allDigiServices w-full flex-wrap block lg:flex justify-around items-center">
+      </div>
+    </div>
+  </div>
+  <!--Icon End-->
+
+  <!--Amazing Slider Start-->
+  <div
+    class="w-[95%] lg:w-[90%] 2xl:w-[80%] m-auto my-[20px] bg-gradient-to-l from-[#D52D4E] to-[#EF515E]  p-[20px] rounded-[15px] relative">
+    <swiper-container class="amazingSlider" slides-per-view="2.1" space-between="5" breakpoints='{
+        "400": {"slidesPerView": 2.5},
+        "640": {"slidesPerView": 3.3},
+        "768": {"slidesPerView": 4.1},
+        "900": {"slidesPerView": 5.1},
+        "1250": {"slidesPerView": 7.2}
+    }'>
+      <swiper-slide class="bg-transparent flex flex-col items-center">
+        <img src="./Images/amazingSlider/amazingIcon.svg" alt="icon">
+        <div class="header__Banner__CountDown w-[130px] h-[40px] flex justify-center gap-1 items-center">
+          <div class="header__Banner__CountDown__second counter-box"></div>
+          <span class="text-white font-bold text-[20px]">:</span>
+          <div class="header__Banner__CountDown__minute counter-box"></div>
+          <span class="text-white font-bold text-[20px]">:</span>
+          <div class="header__Banner__CountDown__hour counter-box"></div>
+        </div>
+        <img src="./Images/amazingSlider/amazingIcon2.svg" alt="amazingIcon2`">
+        <a href="#" class="text-white text-[13px] flex gap-1 ">
+          <div class="leading-[20px]">مشاهده همه</div>
+          <img src="./Images/SVG/toLeftIconWhite.svg" alt="">
+        </a>
+      </swiper-slide>
+    </swiper-container>
+    <div class="custom-nextamazingSlider"><img width="20px" height="20px" src="./Images/MainIcons/right-arrow.svg"
+        alt="Next">
+    </div>
+    <div class="custom-prevamazingSlider"><img width="20px" height="20px" src="./Images/MainIcons/left-arrow.svg"
+        alt="Prev">
+    </div>
+  </div>
+  <!--Amazing Slider End-->
+
+  <!--partnerShip Start-->
+  <div
+    class="partnerShip w-[95%] lg:w-[90%] 2xl:w-[80%] h-fit mx-auto my-[20px] flex  flex-wrap gap-y-3 justify-around lg:justify-between">
+  </div>
+  <!--partnerShip End-->
+
+  <!--Super market Start-->
+  <div
+    class="w-[95%] lg:w-[90%] 2xl:w-[80%] h-fit mx-auto my-[20px] lg:flex justify-between bg-[#ECEFEF] bg-seperMarketPattern p-[30px] rounded-[20px]">
+    <div class="flex justify-center items-center gap-[10px] my-[30xp] lg:m-0">
+      <img width="66px" height="62px" src="./Images/superMarket/superMatketBasket.png" alt="">
+      <img width="250px" height="30px" src="./Images/SVG/superMarketText.svg" alt="">
+      <div
+        class="w-[110px] h-[30px] text-[14px] justify-center items-center hidden lg:flex px-2 py-1 bg-[#3E9A4C] rounded-[20px] text-white">
+        تا 60% تخفیف</div>
+    </div>
+    <div class="lg:flex justify-center items-center gap-4">
+      <div class="superMarket flex justify-center items-center gap-3"></div>
+      <div
+        class="flex justify-center items-center h-[40px] p-[5px] my-[20px] gap-2 bg-white rounded-full text-[#3E9A4C]">
+        بیش از 200 کالا
+        <img class="w-[20px] h-[20px]" src="./Images/SVG/greenArrow.svg" alt="greenArrow">
+      </div>
+    </div>
+  </div>
+  <!--Super market End-->
+
+  <!--partnerShip 2 Start-->
+  <div
+    class="partnerShip2 w-[95%] lg:w-[90%] 2xl:w-[80%] h-fit mx-auto my-[20px] flex  flex-wrap gap-y-3 justify-center lg:justify-between items-center">
+  </div>
+  <!--partnerShip 2 End-->
+
+  <!--categorize Shopping Start-->
+  <div
+    class="w-full lg:w-[90%] 2xl:w-[80%] h-fit mx-auto my-[20px] flex flex-col justify-around items-center flex-wrap gap-y-3">
+    <div class="text-[24px] mb-2">خرید بر اساس دسته بندی</div>
+    <div class="categorizeShoppingItems w-full flex justify-around flex-wrap gap-y-3"></div>
+  </div>
+  <!--categorize Shopping End-->
+
+
+  <!--partnerShip 3 Start-->
+  <div
+    class="partnerShip3 w-[95%] lg:w-[90%] 2xl:w-[80%] h-fit mx-auto my-[20px] flex  flex-wrap gap-y-3 justify-center lg:justify-between items-center">
+  </div>
+  <!--partnerShip 3 End-->
+
+  <!--Most popular Brands Start-->
+  <div class="w-[96%] lg:w-[90%] 2xl:w-[80%] m-auto border-black/20 border-solid border-[1px] rounded-[15px] my-4">
+    <div class="flex justify-center items-center gap-3 h-[50px]">
+      <img src="./Images/SVG/starSVG.svg" alt="">
+      <div class="text-[20px]">محبوب ترین برند ها</div>
+    </div>
+    <div class="relative">
+      <swiper-container class="popularBrandsSwiper" slides-per-view="3" space-between="5" breakpoints='{
+        "400": {"slidesPerView": 5},
+        "640": {"slidesPerView": 6.2},
+        "768": {"slidesPerView": 7.5},
+        "900": {"slidesPerView": 9},
+        "1250": {"slidesPerView": 8.5}
+    }'></swiper-container>
+      <div class="custom-nextBrand"><img width="20px" height="20px" src="./Images/MainIcons/right-arrow.svg" alt="Next">
+      </div>
+      <div class="custom-prevBrand"><img width="20px" height="20px" src="./Images/MainIcons/left-arrow.svg" alt="Prev">
+      </div>
+    </div>
+  </div>
+  <!--Most popular Brands End-->
+
+  <!--partnerShip 4 Start-->
+  <div class="partnerShip4 w-[95%] lg:w-[90%] 2xl:w-[80%] h-fit mx-auto my-[20px] rounded-[20px] overflow-hidden">
+  </div>
+  <!--partnerShip 4 End-->
+
+  <!--Client taste Start-->
+  <div
+    class="clientTasteItems w-[96%] lg:w-[90%] 2xl:w-[80%] m-auto my-[30px] border-black/20 border-solid border-[1px] rounded-[15px] flex justify-between flex-wrap">
+  </div>
+  <!--Client taste End-->
+
+  <!--Most Selled Product start-->
+  <div
+    class="w-[96%] lg:w-[90%] 2xl:w-[80%] m-auto border-black/20 border-solid border-[1px] rounded-[15px] my-4 flex flex-col gap-y4">
+    <div class="h-[50px] flex justify-center items-end gap-2 font-bold text-[16px]">
+      <img src="./Images/SVG/mostSellProducts.svg" alt="">
+      پرفروش ترین کالا ها
+
+    </div>
+    <div class="relative">
+      <swiper-container class="mostSellItem" slides-per-view="1.2" space-between="5" breakpoints='{
+        "400": {"slidesPerView": 1.5},
+        "640": {"slidesPerView": 2},
+        "768": {"slidesPerView": 2.5},
+        "900": {"slidesPerView": 3},
+        "1250": {"slidesPerView": 3.6}
+    }'>
+      </swiper-container>
+      <div class="custom-nextMostSell"><img width="20px" height="20px" src="./Images/MainIcons/right-arrow.svg"
+          alt="Next">
+      </div>
+      <div class="custom-prevMostSell"><img width="20px" height="20px" src="./Images/MainIcons/left-arrow.svg"
+          alt="Prev">
+      </div>
+    </div>
+  </div>
+  <!--Most Selled Product End-->
+
+  <!--Client taste 2 Start-->
+  <div
+    class="clientTasteItems2 w-[96%] lg:w-[90%] 2xl:w-[80%] m-auto my-[30px] border-black/20 border-solid border-[1px] rounded-[15px] flex justify-between flex-wrap">
+  </div>
+  <!--Client taste 2 End-->
+
+  <!--Selected offer Products  -->
+  <div
+    class="w-[96%] lg:w-[90%] 2xl:w-[80%] h-fit m-auto my-[40px] border-solid border-[0.5px] border-black/20 rounded-[15px]">
+    <div class="text-center flex justify-center items-center gap-2 my-4 font-bold text-[17px]">
+      <img src="./Images/SVG/offerIcon.svg" alt="">
+      منتخب محصولات تخفیف و حراج
+    </div>
+    <div class="SelectedOfferProducts flex justify-around flex-wrap p-[20p]"></div>
+  </div>
+
+  <!--Selected offer Products  -->
+
+  <!--Reading Blog Start-->
+  <div class="w-full lg:w-[90%] 2xl:w-[80%] h-fit m-auto my-[40px]">
+    <div class="w-[95%] lg:w-full m-auto flex justify-between items-center">
+      <div class="text-[18px] font-bold">خواندنی ها</div>
+      <a href="#" class="text-blue text-[12px] flex justify-center items-center">
+        مطالب بیشتر در دیجیکالا مگ
+        <img src="./Images/SVG/blueLeft-falsh.svg" alt=""></a>
+    </div>
+    <div class="readingBlogItem w-[95%] lg:w-full m-auto lg:flex justify-between items-center"></div>
+  </div>
+  </div>
+  <!--Reading Blog End-->
+
+  <hr class="w-full h-[0.5px] my-[50px]">
+
+  <!--Footer desktop Start-->
+  <div class="hidden lg:block">
+    <!--Top part of header Start-->
+    <div class="p-[20px] flex justify-between items-center ">
+      <div class="w-[200px] h-[30px]"><img src="./Images/SVG/digikalaIcon.svg" alt=""></div>
+      <button
+        class="goToTopBTN flex justify-center items-center text-[#A1A3A8] border-solid border-[1px] border-[#A1A3A8] p-2 rounded-md text-[12px]">
+        بازگشت به بالا
+        <img src="./Images/SVG/toTopIcon.svg" alt="">
+      </button>
+    </div>
+    <!--Top part of header End-->
+
+    <!--support Numbers Start -->
+    <div class=" flex justify-start items-center gap-4 px-[20px]">
+      <div class="text-[#9DACC9] text-[13px]">تلفن پشتیبانی ۶۱۹۳۰۰۰۰ - ۰۲۱</div>
+      <span class="w-[1.5px] h-[15px] bg-[#9DACC9] block"></span>
+      <div class="text-[#9DACC9] text-[13px]">۰۲۱-۹۱۰۰۰۱۰۰</div>
+      <span class="w-[1.5px] h-[15px] bg-[#9DACC9] block"></span>
+      <div class="text-[#9DACC9] text-[13px]">۷ روز هفته، ۲۴ ساعته پاسخگوی شما هستیم</div>
+    </div>
+    <!--support Numbers End -->
+
+    <!--Features Start -->
+    <div class="features flex justify-around items-center my-[40px]"></div>
+    <!--Features End -->
+
+    <!--Pages Start -->
+    <div class="px-[20px] flex justify-between items-start">
+      <div class="">
+        <div class="mb-4">با دیجیکالا</div>
+        <div class="withDigikala flex flex-col gap-4 text-[14px]">
+        </div>
+      </div>
+      <div class="">
+        <div class="mb-4">خدمات مشتریان</div>
+        <div class="customer flex flex-col gap-4 text-[14px]">
+        </div>
+      </div>
+      <div class="">
+        <div class="mb-4">راهنمای خرید از دیجیکالا</div>
+        <div class="guide flex flex-col gap-4 text-[14px]">
+        </div>
+      </div>
+      <div class="flex flex-col gap-4">
+        <div class="">همراه ما باشید!</div>
+        <div class="flex justify-start items-center gap-4">
+          <img src="./Images/SVG/instagram.svg" alt="instagram">
+          <img src="./Images/SVG/twiter.svg" alt="twiter">
+          <img src="./Images/SVG/linkedin.svg" alt="linkedin">
+          <img src="./Images/SVG/aparat.svg" alt="aparat">
+        </div>
+        <div class="">با ثبت ایمیل , از جدیدترین تخفیف ها باخبر شوید</div>
+        <div class="w-full">
+          <input class="w-[79%] h-[40px] rounded-lg bg-[#F0F0F1]" type="email" name="email" placeholder="ایمیل شما">
+          <button class="w-[19%] h-[40px] rounded-lg bg-[#E0E0E2] text-white" type="button" name="email">ثبت</button>
+        </div>
+      </div>
+    </div>
+    <!--Pages End -->
+
+    <!--Download Start -->
+    <div class="w-[98%] m-auto rounded-md bg-[#3C4B6D] flex justify-between items-center my-[30px]">
+      <div class="flex justify-center items-center gap-4 p-[15px]">
+        <img width="44px" height="44px" src="./Images/footer/digikalaAppIcon.png" alt="DigikalaApp">
+        <div class="text-white">دانلود اپلیکیشن دیجیکالا</div>
+      </div>
+      <div class=" flex justify-center items-center gap-4">
+        <div class="w-[142px] h-[44px] bg-white flex justify-center items-center"><img src="./Images/SVG/bazar.svg"
+            alt="threeDot"></div>
+        <div class="w-[142px] h-[44px] bg-white flex justify-center items-center"><img src="./Images/SVG/mayket.svg"
+            alt="threeDot"></div>
+        <div class="w-[142px] h-[44px] bg-white flex justify-center items-center"><img src="./Images/SVG/sibApp.svg"
+            alt="threeDot"></div>
+        <div class="w-[44px] h-[44px] bg-white flex justify-center items-center rounded-md ml-[20px]"><img
+            src="./Images/SVG/threeDot.svg" alt="threeDot"></div>
+      </div>
+    </div>
+    <!--Download End -->
+
+    <hr class="w-full h-[1.5px] bg-black/20 my-[20px]">
+
+    <!--read More Start-->
+    <div class="w-full px-[20px] ">
+      <div class="flex justify-between items-start">
+        <div class="w-[69%] text-[14px] text-[#62666D]">
+          <div class="flex font-bold text-[18px] text-[#62666D]">فروشگاه اینترنتی دیجیکالا , بررسی , انتخاب و خرید
+            آنلاین</div>
+          <p class="readMoreText text-black/50">یک خرید مطمئن اینترنتی مطمئن، نیازمند فروشگاهی است که بتواند کالاهایی
+            متنوع، باکیفیت و دارای قیمت مناسب را
+            در
+            مدت زمان ی کوتاه به دست
+            مشتریان خود برساند و ضمانت بازگشت کالا هم داشته باشد؛ ویژگی‌هایی که فروشگاه اینترنتی دیجی‌کالا سال‌هاست بر
+            روی
+            آن‌ها کار
+            کرده و توانسته از این طریق مشتریان ثابت خود را داشته باشد.
+            <span class="moreText hidden text-black/50">و همچنین نوع کالا در اختیار کاربران خود قرار می‌دهد. هر یک از
+              روش های ارسال دیجی کالا شرایط و ویژگی‌های خاص خود را دارند که ممکن است گاهی برای کاربران جدید، مبهم و
+              پیچیده به نظر برسند. برای آگاهی بیشتر مشتریان از خدمات دیجی‌کالا، این فروشگاه اینترنتی در بخشی از وب‌سایت
+              خود راهنمای کاملی از شیوه‌‌های ارسال را به صورت ساده و به دور از پیچیدگی، قرار داده است که شامل 8 نوع
+              ارسال کالا به روش‌های زیر است: ارسال امروز، دریافت حضوری، دریافت از گنجه، ارسال توسط فروشنده، ارسال عادی،
+              ارسال کالاهای بزرگ، سنگین و فوق سنگین، ارسال سریع سوپرمارکتی، ارسال با پست
+
+              کدام محصولات در دیجی‌کالا قابل سفارش هستند؟
+
+              تقریبا می‌توان گفت محصولی وجود ندارد که دیجی‌کالا برای مشتریان خود در سراسر کشور فراهم نکرده باشد. شما
+              می‌توانید در تمامی روزهای هفته و تمامی شبانه روز دیجی‌کالا که محصولات دارای تخفیف عالی می‌شوند، سفارش خود
+              را به سادگی ثبت کرده و در روز و محدوده زمانی مناسب خود، درب منزل تحویل بگیرید. بعضی از گروه‌های اصلی و زیر
+              مجموعه‌های پرطرفدار محصولات دیجی‌کالا شامل مواردی می‌شود که در ادامه به معرفی آن‌ها می‌پردازیم که امکان
+              ارسال امروز برای آن ها وجود دارد.
+
+              دیجی کالا در جشنواره‌های سالیانه خود به طور معمول روی تمام دسته بندی‌های کالایی تخفیف‌های عالی
+              قرار‌می‌دهد. به عنوان مثال در زمان بلک فرایدی یا حراج جمعه سیاه، در این سال‌ها بیشترین درصد تخفیف در
+              اختیار مشتریان دیجی‌کالا قرار گرفته‌است و شامل دسته بندی های مختلف از موبایل و لپ تاپ تا عطر و لباس و حتی
+              غذای حیوانات خانگی بوده‌است.
+
+              کالای دیجیتال
+
+              انواع گوشی موبایل از برندهای مختلفی مثل آیفون، گوشی سامسونگ، گوشی نوکیا، گوشی شیائومی، گوشی هواوی، و...،
+              انواع کنسول بازی ps4 و ps5، انواع تبلت‌های پرطرفدار مثل تبلت سامسونگ نوت 10، انواع هندزفری مثل هندزفری بی
+              سیم، تلوزیون از برندهای مختلف مثل تلویزیون سامسونگ، سونی و...، انواع مانیتور، کیس، کیبورد، مودم از برندهای
+              مختلف مثل مودم ایرانسل، آنتن و ... تنها بخشی از محصولاتی هستند که زیر مجموعه کالای دیجیتال در دیجی‌کالا
+              قرار دارند.
+
+              خودرو، ابزار و تجهیزات صنعتی
+
+              انواع خودروهای ایرانی و خارجی از برندهای مطرحی مثل هوندا، کیا و...، موتور سیکلت از برندهایی مثل کویر موتور
+              و...، لوازم جانبی خودرو مثل سیستم صوتی تصویر، ضبط و...، لوازم یدکی مثل دیسک و صفحه کلاج و... و لوازم مصرفی
+              خودرو مثل کفپوش سانا در این گروه قرار می‌گیرند.
+
+              مد و پوشاک
+
+              محصولاتی مثل انواع لباس مثل لباس مجلسی زنانه و مردانه، لباس راحتی، لباس ورزشی، اکسسوری، کیف، کفش، عینک
+              آفتابی، لباس زیر، شال و روسری و... جزو مواردی هستند که می‌توانید آن‌ها را از برندهای مطرح ایرانی و خارجی
+              موجود در دیجی کالا مثل آدیداس، نایکی، دبنهامز، آلدو، درسا و... خریداری کنید.
+
+              اسباب بازی کودک و نوزاد
+
+              در این دسته از کالاهای دیجی‌کالا، انواع لوازم بهداشتی و حمام کودک و نوزاد، انواع پوشاک و کفش، تبلت،
+              اسباب‌بازی، لوازم اتاق خواب کودک، لوازم ایمنی، لوازم شخصی و غذا خوری و ... قرار می‌گیرد تا خرید را برای
+              پدر و مادرها به کاری سریع و آسان تبدیل کند.
+
+              کالاهای سوپر مارکتی
+
+              هر چیزی از مواد خوراکی که به آن نیاز دارید، در سوپرمارکت دیجی‌کالا پیدا می‌شود، محصولات پرطرفداری مثل کره
+              بادام‌زمینی، عسل، سس، قهوه، زعفران، شکلات، انواع نان و ... از برندهای معتبر و معروفی مثل نستله، نوتلا،
+              استارباکس، مزمز، چی توز و ... همگی در اختیار شما هستند و تا رسیدن به آشپزخانه شما تنها چند کلیک فاصله
+              دارند.
+
+              زیبایی و سلامت
+              انواع لوازم آرایش مثل لاک، رنگ مو، لوازم آرایش لب، چشم، صورت و... همگی در دیجی‌کالا موجود هستند. همچنین
+              محصولات بهداشتی مثل انواع شامپو، کرم ضد آفتاب، ماسک صورت، ضد تعریق، ماسک مو و...، انواع لوازم شخصی برقی،
+              ست هدیه، بهترین انواع عطر و اسپری، کرم پودر، ریمل و رژلب وانواع زیورآلات طلا و نقره مثل سرویس طلا، سرویس
+              نقره و... به همراه وسایل مراقبت شخصی طبی در گروه زیبایی و سلامت دیجی‌کالا قرار می‌گیرد. در این بخش برندهای
+              مطرحی مثل اسنس، پنبه ریز، سینره و... حضور دارند.همچنین میتوانید انواع مکمل غذایی و دارویی مثل داروی مناسب
+              سرماخوردگی را در دیجی کالا تهیه کنید.
+
+              خانه و آشپزخانه
+
+              یکی از متنوع‌ترین بخش‌های دیجی‌کالا، بخش لوازم خانه و آشپزخانه است که از محصولاتی مثل صندلی گیمینگ در بخش
+              صندلی‌ها گرفته تا انواع مبل راحتی، انواع آبگرمکن مثل آبگرمکن بوتان، لباسشویی‌های متنوع مثل انواع لباسشویی
+              اسنوا، شیرآلات مختلف مثل شیرآلات قهرمان و...، ظروف و همچنین لوازم برقی آشپزخانه مثل توستر و... را شامل
+              می‌شود و امکان خریدی عالی را برای مشتریان فراهم کرده است. در بخش لوازم خانگی دیجی‌کالا، برندهای معتبری مثل
+              تفال، اخوان، فیلیپس، ال جی، اسنوا، جی پلاس و... حضور دارند.
+
+              کتاب، لوازم تحریر و هنر
+
+              بخش هنر، کتاب، رمان و لوازم تحریر دیجی‌کالا نیز یکی از متنوع‌ترین بخش‌های این فروشگاه اینترنتی است. انواع
+              کتاب و مجله، کتاب زبان، بازی، لوازم تحریر با طرح‌های مختلف مانند دختر کفشدوزکی، سازهایی مثل پیانو، سنتور،
+              هنگ درام و... با بهترین قیمت‌ها و از بهترین برندها در دسترس شما قرار دارند.
+
+              ورزش و سفر
+
+              هر نوع وسیله و لباس ورزشی که فکرش را کنید، انواع وسایل کمپینگ و کوهنوردی، ساک و قمقمه ورزشی و وسایل سفر
+              اربعین و... در این بخش قرار می‌گیرند. همچنین شما می‌توانید وسایل مد نظر خود را بر اساس نوع ورزش (آبی،
+              هوازی، بدنسازی و...) در دسته‌بندی‌های دیجی‌کالا پیدا کنید.
+
+              محصولات بومی و محلی
+
+              و در آخر دیجی‌کالا از طریق به فروش رساندن محصولات بومی و سنتی متفاوتی مثل انواع خوراکی، گلیم و گبه، ابزار
+              و ... تلاش کرده تا بین هنر ایرانی و متقاضیان آن کوتاه‌ترین راه را پیدا کند. در این بخش شما می‌توانید انواع
+              محصولات از جمله ظروف زیبای مخصوص به سفره هفت‌سین و پذیرایی از مهمانان در روزهای نوروز، انواع آیینه و
+              شمعدان و هر آن چیزی را که برای خلق زیبایی در روزهای بهاری به آن نیاز دارید، با قیمت مناسب و تنوع بسیار
+              بالا انتخاب کنید. همچنین در صفحه برچسب ها، امکان مشاهده و خرید انواع محصولات با طرح های بومی وجود دارد.
+              دیجی‌کالا همچنین برای اینکه حال و هوای عید را به اعضای خود هدیه کند، تقویم ۱۴۰۱، انواع ایده عکس پروفایل
+              عید نوروز، آهنگ‌های عید نوروز و موزیک‌های شاد بهاری، وسایل مربوط به خانه‌تکانیی و انواع لباس های عید را
+              برای شما فراهم کرده است تا بتوانید در کنار خرید خود، از این حال و هوای تازه نهایت لذت را ببرید.</span>
+          </p>
+          <div class="flex"><button class="readMoreBTN text-blue">مشاهده بیشتر</button>
+            <img src="./Images/SVG/blueLeft-falsh.svg" alt="">
+          </div>
+
+        </div>
+        <div class="w-[28%] flex justify-center items-center gap-3 mr-[10px]">
+          <div
+            class="w-[30%] h-[110px] border-solid border-[1px] border-black/20 rounded-lg flex justify-center items-center">
+            <img width="74px" height="74px" src="./Images/footer/samandehi.png" alt="samandehi">
+          </div>
+          <div
+            class="w-[30%] h-[110px] border-solid border-[1px] border-black/20 rounded-lg  flex justify-center items-center">
+            <img width="74px" height="74px" src="./Images/footer/kasbokar.png" alt="kasbokar">
+          </div>
+          <div
+            class="w-[30%] h-[110px] border-solid border-[1px] border-black/20 rounded-lg  flex justify-center items-center">
+            <img width="74px" height="74px" src="./Images/footer/Enamad.png" alt="Enamad">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--read More End-->
+
+    <hr class="w-full h-[1.5px] bg-black/20 my-[20px]">
+
+    <!--copy Write Start-->
+    <div class="w-[70%] m-auto text-black/70 text-center text-[12px] mb-[20px]">برای استفاده از مطالب دیجی‌کالا، داشتن
+      «هدف غیرتجاری» و ذکر
+      «منبع» کافیست. تمام حقوق اين وب‌سايت نیز
+      برای شرکت نوآوران
+      فن آوازه (فروشگاه آنلاین دیجی‌کالا) است.</div>
+    <!--copy Write End-->
+
+    <!--Digikala childrens Start-->
+    <div class="digiChild w-full bg-[#F0F0F1] flex flex-wrap">
+      <div
+        class="w-[12.5%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiMag.svg" alt="">
+      </div>
+      <div
+        class="w-[12.5%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiPay.svg" alt="">
+      </div>
+      <div
+        class="w-[12.5%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiStyle.svg" alt="">
+      </div>
+      <div
+        class="w-[12.5%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiPlus.svg" alt="">
+      </div>
+      <div
+        class="w-[12.5%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiClub.svg" alt="">
+      </div>
+      <div
+        class="w-[12.5%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiJet.svg" alt="">
+      </div>
+      <div
+        class="w-[12.5%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiMehr.svg" alt="">
+      </div>
+      <div
+        class="w-[12.5%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiNext.svg " alt="">
+      </div>
+      <div
+        class="w-[16.66%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiExpress.svg " alt="">
+      </div>
+      <div
+        class="w-[16.66%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiGanje.svg " alt="">
+      </div>
+      <div
+        class="w-[16.66%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiFy.svg " alt="">
+      </div>
+      <div
+        class="w-[16.66%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiTech.svg " alt="">
+      </div>
+      <div
+        class="w-[16.66%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiBis.svg " alt="">
+      </div>
+      <div
+        class="w-[16.66%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+        <img height="20px" src="./Images/SVG/digiExpress.svg " alt="">
+      </div>
+    </div>
+    <!--Digikala childrens End-->
+  </div>
+  <!--Footer desktop End-->
+
+  <!--Footer Mobile Start-->
+  <div class="block lg:hidden">
+    <button class="goToTopBTN2 w-full flex justify-center items-center text-blue text-center">بازگشت به بالا
+      <img width="24px" height="24px" src="./Images/SVG/toTop.svg" alt="toTop">
+    </button>
+    <div class="p-[20px] flex justify-between items-center">
+      <div class="m-[20px] flex gap-[20px]">
+        <img src="./Images/SVG/support.svg" alt="">
+        <div class="">
+          <div class="text-[13px] text-black/70">۷ روز هفته، ۲۴ ساعت</div>
+          <div class="">تماس با پشتیبانی</div>
+        </div>
+      </div>
+      <div class="w-fit p-[15px] border-[1px] border-solid border-black rounded-lg">تماس</div>
+    </div>
+    <hr class="w-[95%] m-auto h-[0.5px]">
+    <div class="p-[20px] flex justify-between items-center">
+      <div class="flex gap-[20px]">
+        <img width="44px" height="44px" src="./Images/footer/digikalaAppIcon.png" alt="">
+        <div class="">
+          <div class="text-[13px] text-black/70">۷ روز هفته، ۲۴ ساعت</div>
+          <div class="">تماس با پشتیبانی</div>
+        </div>
+      </div>
+      <div class="w-fit p-[15px] border-[1px] border-solid border-black rounded-lg bg-black text-white">دانلود</div>
+    </div>
+    <hr class="w-[95%] m-auto h-[0.5px]">
+    <div class="">
+      <button class="accardionBTN w-full p-[20px] flex justify-between items-center">
+        <div class="text-[14px]">با دیجیکالا</div>
+        <img class="accardionSVG" src="./Images/SVG/toTopBlack.svg" alt="">
+      </button>
+      <div class="accardionShowMore hidden px-[20px] pb-4 withDigikalaMobile justify-start items-start flex-col gap-3">
+      </div>
+    </div>
+    <hr class="w-[95%] m-auto h-[0.5px]">
+    <div class="">
+      <button class="accardionBTN w-full p-[20px] flex justify-between items-center">
+        <div class="text-[14px]">خدمات مشتریان</div>
+        <img class="accardionSVG" src="./Images/SVG/toTopBlack.svg" alt="">
+      </button>
+      <div class="accardionShowMore hidden px-[20px] pb-4 customerMobile justify-start items-start flex-col gap-3">
+      </div>
+    </div>
+    <hr class="w-[95%] m-auto h-[0.5px]">
+    <div class="">
+      <button class="accardionBTN w-full p-[20px] flex justify-between items-center">
+        <div class="text-[14px]">راهنمای خرید از دیجیکالا</div>
+        <img class="accardionSVG" src="./Images/SVG/toTopBlack.svg" alt="">
+      </button>
+      <div class="accardionShowMore hidden px-[20px] pb-4 guidemobile justify-start items-start flex-col gap-3 bp-4">
+      </div>
+    </div>
+    <hr class="w-[95%] m-auto h-[0.5px]">
+    <div class="">
+      <button class="accardionBTN w-full p-[20px] flex justify-between items-center">
+        <div class="">شرکای تجاری</div>
+        <img class="accardionSVG" src="./Images/SVG/toTopBlack.svg" alt="">
+      </button>
+      <div class="accardionShowMore hidden px-[20px] flex-wrap bp-4">
+        <div
+          class="w-[33%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiMag.svg" alt="">
+        </div>
+        <div
+          class="w-[33%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiPay.svg" alt="">
+        </div>
+        <div
+          class="w-[33%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiStyle.svg" alt="">
+        </div>
+        <div
+          class="w-[33%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiPlus.svg" alt="">
+        </div>
+        <div
+          class="w-[33%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiClub.svg" alt="">
+        </div>
+        <div
+          class="w-[33%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiJet.svg" alt="">
+        </div>
+        <div
+          class="w-[33%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiMehr.svg" alt="">
+        </div>
+        <div
+          class="w-[33%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiNext.svg " alt="">
+        </div>
+        <div
+          class="w-[33%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiExpress.svg " alt="">
+        </div>
+        <div
+          class="w-[33%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiGanje.svg " alt="">
+        </div>
+        <div
+          class="w-[33%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiFy.svg " alt="">
+        </div>
+        <div
+          class="w-[33%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiTech.svg " alt="">
+        </div>
+        <div
+          class="w-[50%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiBis.svg " alt="">
+        </div>
+        <div
+          class="w-[50%] h-[80px] flex justify-center items-center border-solid border-black/20 border-[0.25px] p-[20px]">
+          <img height="20px" src="./Images/SVG/digiExpress.svg " alt="">
+        </div>
+      </div>
+    </div>
+    <hr class="w-[95%] m-auto h-[0.5px]">
+    <div class="w-full p-[20px] text-[14px] text-[#62666D] mb-[50px]">
+      <div class="flex font-bold text-[18px] text-[#62666D] pb-3 ">فروشگاه اینترنتی دیجیکالا , بررسی , انتخاب و خرید
+        آنلاین</div>
+      <p class="readMoreText text-black/50">یک خرید مطمئن اینترنتی مطمئن، نیازمند فروشگاهی است که بتواند کالاهایی
+        متنوع، باکیفیت و دارای قیمت مناسب را
+        در
+        مدت زمان ی کوتاه به دست
+        مشتریان خود برساند و ضمانت بازگشت کالا هم داشته باشد؛ ویژگی‌هایی که فروشگاه اینترنتی دیجی‌کالا سال‌هاست بر
+        روی
+        آن‌ها کار
+        کرده و توانسته از این طریق مشتریان ثابت خود را داشته باشد.
+        <span class="moreText hidden text-black/50">و همچنین نوع کالا در اختیار کاربران خود قرار می‌دهد. هر یک از
+          روش های ارسال دیجی کالا شرایط و ویژگی‌های خاص خود را دارند که ممکن است گاهی برای کاربران جدید، مبهم و
+          پیچیده به نظر برسند. برای آگاهی بیشتر مشتریان از خدمات دیجی‌کالا، این فروشگاه اینترنتی در بخشی از وب‌سایت
+          خود راهنمای کاملی از شیوه‌‌های ارسال را به صورت ساده و به دور از پیچیدگی، قرار داده است که شامل 8 نوع
+          ارسال کالا به روش‌های زیر است: ارسال امروز، دریافت حضوری، دریافت از گنجه، ارسال توسط فروشنده، ارسال عادی،
+          ارسال کالاهای بزرگ، سنگین و فوق سنگین، ارسال سریع سوپرمارکتی، ارسال با پست
+
+          کدام محصولات در دیجی‌کالا قابل سفارش هستند؟
+
+          تقریبا می‌توان گفت محصولی وجود ندارد که دیجی‌کالا برای مشتریان خود در سراسر کشور فراهم نکرده باشد. شما
+          می‌توانید در تمامی روزهای هفته و تمامی شبانه روز دیجی‌کالا که محصولات دارای تخفیف عالی می‌شوند، سفارش خود
+          را به سادگی ثبت کرده و در روز و محدوده زمانی مناسب خود، درب منزل تحویل بگیرید. بعضی از گروه‌های اصلی و زیر
+          مجموعه‌های پرطرفدار محصولات دیجی‌کالا شامل مواردی می‌شود که در ادامه به معرفی آن‌ها می‌پردازیم که امکان
+          ارسال امروز برای آن ها وجود دارد.
+
+          دیجی کالا در جشنواره‌های سالیانه خود به طور معمول روی تمام دسته بندی‌های کالایی تخفیف‌های عالی
+          قرار‌می‌دهد. به عنوان مثال در زمان بلک فرایدی یا حراج جمعه سیاه، در این سال‌ها بیشترین درصد تخفیف در
+          اختیار مشتریان دیجی‌کالا قرار گرفته‌است و شامل دسته بندی های مختلف از موبایل و لپ تاپ تا عطر و لباس و حتی
+          غذای حیوانات خانگی بوده‌است.
+
+          کالای دیجیتال
+
+          انواع گوشی موبایل از برندهای مختلفی مثل آیفون، گوشی سامسونگ، گوشی نوکیا، گوشی شیائومی، گوشی هواوی، و...،
+          انواع کنسول بازی ps4 و ps5، انواع تبلت‌های پرطرفدار مثل تبلت سامسونگ نوت 10، انواع هندزفری مثل هندزفری بی
+          سیم، تلوزیون از برندهای مختلف مثل تلویزیون سامسونگ، سونی و...، انواع مانیتور، کیس، کیبورد، مودم از برندهای
+          مختلف مثل مودم ایرانسل، آنتن و ... تنها بخشی از محصولاتی هستند که زیر مجموعه کالای دیجیتال در دیجی‌کالا
+          قرار دارند.
+
+          خودرو، ابزار و تجهیزات صنعتی
+
+          انواع خودروهای ایرانی و خارجی از برندهای مطرحی مثل هوندا، کیا و...، موتور سیکلت از برندهایی مثل کویر موتور
+          و...، لوازم جانبی خودرو مثل سیستم صوتی تصویر، ضبط و...، لوازم یدکی مثل دیسک و صفحه کلاج و... و لوازم مصرفی
+          خودرو مثل کفپوش سانا در این گروه قرار می‌گیرند.
+
+          مد و پوشاک
+
+          محصولاتی مثل انواع لباس مثل لباس مجلسی زنانه و مردانه، لباس راحتی، لباس ورزشی، اکسسوری، کیف، کفش، عینک
+          آفتابی، لباس زیر، شال و روسری و... جزو مواردی هستند که می‌توانید آن‌ها را از برندهای مطرح ایرانی و خارجی
+          موجود در دیجی کالا مثل آدیداس، نایکی، دبنهامز، آلدو، درسا و... خریداری کنید.
+
+          اسباب بازی کودک و نوزاد
+
+          در این دسته از کالاهای دیجی‌کالا، انواع لوازم بهداشتی و حمام کودک و نوزاد، انواع پوشاک و کفش، تبلت،
+          اسباب‌بازی، لوازم اتاق خواب کودک، لوازم ایمنی، لوازم شخصی و غذا خوری و ... قرار می‌گیرد تا خرید را برای
+          پدر و مادرها به کاری سریع و آسان تبدیل کند.
+
+          کالاهای سوپر مارکتی
+
+          هر چیزی از مواد خوراکی که به آن نیاز دارید، در سوپرمارکت دیجی‌کالا پیدا می‌شود، محصولات پرطرفداری مثل کره
+          بادام‌زمینی، عسل، سس، قهوه، زعفران، شکلات، انواع نان و ... از برندهای معتبر و معروفی مثل نستله، نوتلا،
+          استارباکس، مزمز، چی توز و ... همگی در اختیار شما هستند و تا رسیدن به آشپزخانه شما تنها چند کلیک فاصله
+          دارند.
+
+          زیبایی و سلامت
+          انواع لوازم آرایش مثل لاک، رنگ مو، لوازم آرایش لب، چشم، صورت و... همگی در دیجی‌کالا موجود هستند. همچنین
+          محصولات بهداشتی مثل انواع شامپو، کرم ضد آفتاب، ماسک صورت، ضد تعریق، ماسک مو و...، انواع لوازم شخصی برقی،
+          ست هدیه، بهترین انواع عطر و اسپری، کرم پودر، ریمل و رژلب وانواع زیورآلات طلا و نقره مثل سرویس طلا، سرویس
+          نقره و... به همراه وسایل مراقبت شخصی طبی در گروه زیبایی و سلامت دیجی‌کالا قرار می‌گیرد. در این بخش برندهای
+          مطرحی مثل اسنس، پنبه ریز، سینره و... حضور دارند.همچنین میتوانید انواع مکمل غذایی و دارویی مثل داروی مناسب
+          سرماخوردگی را در دیجی کالا تهیه کنید.
+
+          خانه و آشپزخانه
+
+          یکی از متنوع‌ترین بخش‌های دیجی‌کالا، بخش لوازم خانه و آشپزخانه است که از محصولاتی مثل صندلی گیمینگ در بخش
+          صندلی‌ها گرفته تا انواع مبل راحتی، انواع آبگرمکن مثل آبگرمکن بوتان، لباسشویی‌های متنوع مثل انواع لباسشویی
+          اسنوا، شیرآلات مختلف مثل شیرآلات قهرمان و...، ظروف و همچنین لوازم برقی آشپزخانه مثل توستر و... را شامل
+          می‌شود و امکان خریدی عالی را برای مشتریان فراهم کرده است. در بخش لوازم خانگی دیجی‌کالا، برندهای معتبری مثل
+          تفال، اخوان، فیلیپس، ال جی، اسنوا، جی پلاس و... حضور دارند.
+
+          کتاب، لوازم تحریر و هنر
+
+          بخش هنر، کتاب، رمان و لوازم تحریر دیجی‌کالا نیز یکی از متنوع‌ترین بخش‌های این فروشگاه اینترنتی است. انواع
+          کتاب و مجله، کتاب زبان، بازی، لوازم تحریر با طرح‌های مختلف مانند دختر کفشدوزکی، سازهایی مثل پیانو، سنتور،
+          هنگ درام و... با بهترین قیمت‌ها و از بهترین برندها در دسترس شما قرار دارند.
+
+          ورزش و سفر
+
+          هر نوع وسیله و لباس ورزشی که فکرش را کنید، انواع وسایل کمپینگ و کوهنوردی، ساک و قمقمه ورزشی و وسایل سفر
+          اربعین و... در این بخش قرار می‌گیرند. همچنین شما می‌توانید وسایل مد نظر خود را بر اساس نوع ورزش (آبی،
+          هوازی، بدنسازی و...) در دسته‌بندی‌های دیجی‌کالا پیدا کنید.
+
+          محصولات بومی و محلی
+
+          و در آخر دیجی‌کالا از طریق به فروش رساندن محصولات بومی و سنتی متفاوتی مثل انواع خوراکی، گلیم و گبه، ابزار
+          و ... تلاش کرده تا بین هنر ایرانی و متقاضیان آن کوتاه‌ترین راه را پیدا کند. در این بخش شما می‌توانید انواع
+          محصولات از جمله ظروف زیبای مخصوص به سفره هفت‌سین و پذیرایی از مهمانان در روزهای نوروز، انواع آیینه و
+          شمعدان و هر آن چیزی را که برای خلق زیبایی در روزهای بهاری به آن نیاز دارید، با قیمت مناسب و تنوع بسیار
+          بالا انتخاب کنید. همچنین در صفحه برچسب ها، امکان مشاهده و خرید انواع محصولات با طرح های بومی وجود دارد.
+          دیجی‌کالا همچنین برای اینکه حال و هوای عید را به اعضای خود هدیه کند، تقویم ۱۴۰۱، انواع ایده عکس پروفایل
+          عید نوروز، آهنگ‌های عید نوروز و موزیک‌های شاد بهاری، وسایل مربوط به خانه‌تکانیی و انواع لباس های عید را
+          برای شما فراهم کرده است تا بتوانید در کنار خرید خود، از این حال و هوای تازه نهایت لذت را ببرید.</span>
+      </p>
+      <div class="flex"><button class="readMoreBTN text-blue">مشاهده بیشتر</button>
+        <img src="./Images/SVG/blueLeft-falsh.svg" alt="">
+      </div>
+
+    </div>
+  </div>
+  <!--Footer Mobile End-->
+
+  <!--Support Icon Start-->
+  <button id="toggleButton"
+    class="w-[50px] h-[50px] bg-[#EF4056] hidden md:flex rounded-full fixed bottom-[30px] right-[50px] justify-center items-center">
+    <img src="./Images/header/Support.png" alt="Support" width="24" height="24" class="">
+  </button>
+  <div id="toggleDiv"
+    class="w-[400px] h-[400px] bg-white fixed bottom-[80px] right-[80px] shadow-2xl rounded-xl border-[1px] border-red-600 hidden bannerZindex overflow-hidden">
+    <div class="w-full h-[50px] bg-[#EF4156] flex justify-between items-center p-[10px]">
+      <div class="text-white font-bold">پشتیبانی آنلاین</div>
+      <img id="closeButton" src="./Images/header/ToLeftArrow.png" alt="Arrow" width="30" height="24"
+        class="cursor-pointer">
+    </div>
+
+    <div class="overflow-y-auto h-[350px]" id="SupportScroolCustom">
+      <div class="font-bold text-[18px] px-3 pt-3">سلام &#128075; &#128075;</div>
+      <div class="p-3">اینجا میتونید تعدادی از پرسش های متداول را ببینید یا در صورت تمایل با ما آنلاین گفتگو کنید!</div>
+
+      <div class="px-3">
+        <div class="border-[1px] border-black/40 m-1 p-1 rounded-md">
+          <button class="w-full text-Start py-2 flex justify-between items-center"
+            onclick="toggleAccordion('accordion1', 'icon1')">
+            چگونه میتوانم یک پروفایل ایجاد کنم
+            <span id="icon1" class="transition-transform transform rotate-0">
+              <img src="./Images/SVG/ToBottomArrow.svg" alt="">
+            </span>
+          </button>
+          <div id="accordion1" class="hidden p-2 text-black/70 text-[12px]">
+            <hr class="mb-2">
+            در وب سایت روی گزینه "ثبت نام" کلیک کنید. میتوانید با استفاده از شماره موبایل ثبت نام خود را انجام دهید.
+          </div>
+        </div>
+
+        <div class="border-[1px] border-black/40 m-1 p-1 rounded-md">
+          <button class="w-full text-Start py-2 flex justify-between items-center"
+            onclick="toggleAccordion('accordion2', 'icon2')">
+            چطور در دیجی کالا سفارش خود را ثبت کنم؟
+            <span id="icon2" class="transition-transform transform rotate-0">
+              <img src="./Images/SVG/ToBottomArrow.svg" alt="">
+            </span>
+          </button>
+          <div id="accordion2" class="hidden p-2 text-black/70 text-[12px]">
+            <hr class="mb-2">
+            بعد از ورود به پروفایل، کالای مدنظر خود را به سبد خرید اضافه کنید و ...
+          </div>
+        </div>
+
+        <div class="border-[1px] border-black/40 m-1 p-1 rounded-md">
+          <button class="w-full text-Start py-2 flex justify-between items-center"
+            onclick="toggleAccordion('accordion3', 'icon3')">
+            <div class="w-[90%]">کالایی را که در طرح پیشنهاد شگفت انگیز می باشد می توان با تعداد بیش از یک عدد خریداری
+              کرد؟
+            </div>
+            <span id="icon3" class="transition-transform transform rotate-0">
+              <img src="./Images/SVG/ToBottomArrow.svg" alt="">
+            </span>
+          </button>
+          <div id="accordion3" class="hidden p-2 text-black/70 text-[12px]">
+            <hr class="mb-2">
+            به دلیل اینکه طرح پیشنهاد شگفت انگیز یک طرح تشویقی خرید است، دیجی‌کالا تعهدی در قبال سفارش‌های تعدادی ندارد.
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-[200px] h-[40px] my-3 rounded-3xl bg-[#EF4156] m-auto text-white flex justify-center items-center cursor-pointer">
+        تماس با ما</div>
+    </div>
+  </div>
+  <!--Support Icon End-->
+
+  <!-- SuperMarket Pop Up Start -->
+  <button
+    class="SuperMarketPopUp w-[130px] h-[50px] hidden md:flex rounded-[30px] bg-[#069A4A] fixed bottom-[30px] left-[30px] justify-center items-center gap-2 SuperZindex rtl"
+    onclick="togglePopUp()">
+    <img src="./Images/SuperMarketPopUp/Basket.png" alt="Basket" width="28" height="28">
+    <div class="text-white">سوپرمارکت</div>
+  </button>
+
+  <div id="overlay"
+    class="w-full h-screen fixed top-0 bg-black opacity-20 bannerZindex flex justify-center items-center hidden"
+    onclick="togglePopUp()">
+  </div>
+
+  <div id="popup"
+    class="w-[450px] h-[320px] p-4 fixed top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 rounded-xl bg-white bannerZindex text-black hidden">
+    <div class="flex justify-between items-center mb-4">
+      <div>
+        <div class="mb-1">یکی از سوپر مارکت های زیر را انتخاب کنید</div>
+        <div class="text-[12px] text-black/50">فقط در شهر های تهران و کرج</div>
+      </div>
+      <button onclick="togglePopUp()"><img src="./Images/SVG/Cross.svg" alt="بستن"></button>
+    </div>
+    <div class="flex justify-between items-center">
+      <div class="w-[48%] h-[220px] bg-[#DCF3E6] rounded-xl flex flex-col justify-between cursor-pointer">
+        <div class="p-3">
+          <div class="mb-2">پرتخفیف و متنوع</div>
+          <div
+            class="bg-[#069A4A] w-[55%] h-[25px] SuperMarketRound flex justify-around items-center text-[12px] text-white p-1">
+            <img src="./Images/SVG/Shipping.svg" alt="Shipping" width="20" height="20">
+            ارسال امروز
+          </div>
+        </div>
+        <img src="./Images/SuperMarketPopUp/fresh-shop-basket.png" alt="fresh-shop-basket" width="140" class="self-end">
+      </div>
+      <div class="w-[48%] h-[220px] bg-[#FEEBDE] rounded-xl flex flex-col justify-between cursor-pointer">
+        <div class="p-3">
+          <div class="mb-2">ارسال سریع</div>
+          <div
+            class="bg-[#FF8042] w-[55%] h-[25px] SuperMarketRound flex justify-around items-center text-[12px] text-white p-1">
+            <img src="./Images/SVG/Clock.svg" alt="Clock" width="20" height="20">
+            45 دقیقه ای
+          </div>
+        </div>
+        <img src="./Images/SuperMarketPopUp/jet-shop-basket.png" alt="jet-shop-basket" width="140" class="self-end">
+      </div>
+    </div>
+  </div>
+  <!-- SuperMarket Pop Up End -->
+
+  <!--Project End-->
+  <script type="module" src="./node_modules/swiper/swiper-element-bundle.min.js"></script>
+  <script type="module" src="./src/TS/main.ts"></script>
+  <script>
+    const header = document.querySelector('.HeaderZindexTwo');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > lastScrollY) {
+        header.classList.add('HeaderInimation'); // هنگام اسکرول به پایین، کلاس "hidden" اضافه شود
+      } else {
+        header.classList.remove('HeaderInimation'); // هنگام اسکرول به بالا، کلاس "hidden" حذف شود
+      }
+      lastScrollY = window.scrollY;
+    });
+
+  </script>
+  <script>
+    const swiper = document.querySelector('.storySlider');
+
+    const nextBtn = document.querySelector('.custom-next');
+    const prevBtn = document.querySelector('.custom-prev');
+
+    nextBtn.addEventListener('click', () => {
+      swiper.swiper.slidePrev();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      swiper.swiper.slideNext();
+    });
+  </script>
+  <script>
+    const swiperBrand = document.querySelector('.popularBrandsSwiper');
+
+    const nextBtnBrand = document.querySelector('.custom-nextBrand');
+    const prevBtnBrand = document.querySelector('.custom-prevBrand');
+
+    nextBtnBrand.addEventListener('click', () => {
+      swiperBrand.swiper.slidePrev();
+    });
+
+    prevBtnBrand.addEventListener('click', () => {
+      swiperBrand.swiper.slideNext();
+    });
+  </script>
+  <script>
+    const swiperMostSell = document.querySelector('.mostSellItem');
+
+    const nextBtnMostSell = document.querySelector('.custom-nextMostSell');
+    const prevBtnMostSell = document.querySelector('.custom-prevMostSell');
+
+    nextBtnMostSell.addEventListener('click', () => {
+      swiperMostSell.swiper.slidePrev();
+    });
+
+    prevBtnMostSell.addEventListener('click', () => {
+      swiperMostSell.swiper.slideNext();
+    });
+  </script>
+  <script>
+    const mainSlider = document.querySelector('.mainSlider');
+
+    const nextBtnmainSlider = document.querySelector('.custom-nextmainSlider');
+    const prevBtnmainSlider = document.querySelector('.custom-prevmainSlider');
+
+    nextBtnmainSlider.addEventListener('click', () => {
+      mainSlider.swiper.slidePrev();
+    });
+
+    prevBtnmainSlider.addEventListener('click', () => {
+      mainSlider.swiper.slideNext();
+    });
+
+  </script>
+  <script>
+    const amazingSlider = document.querySelector('.amazingSlider');
+
+    const nextBtnamazingSlider = document.querySelector('.custom-nextamazingSlider');
+    const prevBtnamazingSlider = document.querySelector('.custom-prevamazingSlider');
+
+    nextBtnamazingSlider.addEventListener('click', () => {
+      amazingSlider.swiper.slidePrev();
+    });
+
+    prevBtnamazingSlider.addEventListener('click', () => {
+      amazingSlider.swiper.slideNext();
+    });
+
+  </script>
+  <script>
+    const toggleButton = document.getElementById('toggleButton');
+    const toggleDiv = document.getElementById('toggleDiv');
+    const closeButton = document.getElementById('closeButton');
+    const body = document.body;
+
+    toggleButton.addEventListener('click', () => {
+      toggleDiv.classList.toggle('hidden');
+      // غیرفعال کردن اسکرول هنگام باز شدن
+      if (!toggleDiv.classList.contains('hidden')) {
+        body.style.overflow = 'hidden';
+      } else {
+        body.style.overflow = 'auto';
+      }
+    });
+
+    closeButton.addEventListener('click', () => {
+      toggleDiv.classList.add('hidden');
+      // فعال کردن اسکرول هنگام بسته شدن
+      body.style.overflow = 'auto';
+    });
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+      content.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    }
+  </script>
+  <script>
+    function togglePopUp() {
+      const overlay = document.getElementById('overlay');
+      const popup = document.getElementById('popup');
+
+      const isHidden = overlay.classList.contains('hidden');
+
+      if (isHidden) {
+        overlay.classList.remove('hidden');
+        popup.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      } else {
+        overlay.classList.add('hidden');
+        popup.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    }
+  </script>
+  <script>
+    const headerToggleButtons = document.querySelectorAll('.HeaderToggleButton');
+    const headerToggleDivs = document.querySelectorAll('.HeaderToggleDiv');
+    const crossButtons = document.querySelectorAll('.CrossButtonHeader');
+
+    function showDivs() {
+      headerToggleDivs.forEach((div) => div.classList.remove('hidden'));
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideDivs() {
+      headerToggleDivs.forEach((div) => div.classList.add('hidden'));
+      document.body.style.overflow = 'auto';
+    }
+
+    headerToggleButtons.forEach((button) => {
+      button.addEventListener('click', showDivs);
+    });
+
+    crossButtons.forEach((button) => {
+      button.addEventListener('click', hideDivs);
+    });
+
+    headerToggleDivs.forEach((div) => {
+      div.addEventListener('click', hideDivs);
+    });
+  </script>
+  <script>
+    document.getElementById('IconsToggle').addEventListener('click', () => {
+      const box1 = document.getElementById('ToggleBox1');
+      const box2 = document.getElementById('ToggleBox2');
+
+      // اگر دیوها مخفی هستند، نمایش داده شوند
+      if (box1.classList.contains('hidden') && box2.classList.contains('hidden')) {
+        box1.classList.remove('hidden');
+        box2.classList.remove('hidden');
+      } else {
+        // در غیر این صورت، مخفی شوند
+        box1.classList.add('hidden');
+        box2.classList.add('hidden');
+      }
+    });
+
+    document.getElementById('ToggleBox1').addEventListener('click', (event) => {
+      event.stopPropagation();
+      const box1 = document.getElementById('ToggleBox1');
+      const box2 = document.getElementById('ToggleBox2');
+      box1.classList.add('hidden');
+      box2.classList.add('hidden');
+    });
+
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('IconsToggle1').addEventListener('click', () => {
+        const box1 = document.getElementById('ToggleBox1');
+        const box2 = document.getElementById('ToggleBox2');
+
+        if (box1.classList.contains('hidden') && box2.classList.contains('hidden')) {
+          box1.classList.remove('hidden');
+          box2.classList.remove('hidden');
+        } else {
+          box1.classList.add('hidden');
+          box2.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('ToggleBox1').addEventListener('click', (event) => {
+        event.stopPropagation();
+        const box1 = document.getElementById('ToggleBox1');
+        const box2 = document.getElementById('ToggleBox2');
+
+        box1.classList.add('hidden');
+        box2.classList.add('hidden');
+      });
+
+      const iconCloseCross = document.getElementById("IconCloseCross");
+      if (iconCloseCross) {
+        iconCloseCross.addEventListener('click', () => {
+          const box1 = document.getElementById('ToggleBox1');
+          const box2 = document.getElementById('ToggleBox2');
+
+          box1.classList.add('hidden');
+          box2.classList.add('hidden');
+        });
+      }
+    });
+  </script>
+  <script>
+    const menuLink = document.getElementById("menu-link");
+      const overlay = document.getElementById("overlayMenu");
+      const submenu = document.getElementById("submenu");
+      const headerx = document.querySelector(".HeaderZindexTwo"); // انتخاب دیو با کلاس HeaderxZindexTwo
+
+      const scrollIncrement = -1; // میزان افزایش اسکرول (100 پیکسل)
+
+      // 1. ایونت لیسنر برای `mouseenter` روی `menuLink`
+      menuLink.addEventListener("mouseenter", () => {
+        // غیرفعال کردن اسکرول
+        document.body.style.overflow = "hidden";
+
+        // افزایش اسکرول صفحه
+        window.scrollBy(0, scrollIncrement);
+
+        // نمایش منو و overlay
+        overlay.classList.remove("hidden");
+        submenu.classList.remove("hidden");
+
+        // اضافه کردن کلاس CustomTop به HeaderxZindexTwo
+        headerx.classList.add("CustomTop");
+      });
+
+      // 2. ایونت لیسنر برای `mouseleave` روی `overlay`
+      overlay.addEventListener("mouseleave", () => {
+        // فعال کردن مجدد اسکرول
+        document.body.style.overflow = "auto";
+
+        // پنهان کردن منو و overlay
+        overlay.classList.add("hidden");
+        submenu.classList.add("hidden");
+
+        // حذف کلاس CustomTop از HeaderxZindexTwo
+        headerx.classList.remove("CustomTop");
+      });
+
+      // 3. ایونت لیسنر برای `mouseleave` روی `submenu`
+      submenu.addEventListener("mouseleave", () => {
+        // فعال کردن مجدد اسکرول
+        document.body.style.overflow = "auto";
+
+        // پنهان کردن منو و overlay
+        overlay.classList.add("hidden");
+        submenu.classList.add("hidden");
+
+        // حذف کلاس CustomTop از HeaderxZindexTwo
+        headerx.classList.remove("CustomTop");
+      });
+
+
+  </script>
+</body>
+
+</html>
