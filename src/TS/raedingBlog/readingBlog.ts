@@ -1,8 +1,10 @@
 import dataFetcher from "../dataFetcher";
+import { readingBlogType   } from "../global";
+
 
 const readingBlog = async () => {
   try {
-    let data = await dataFetcher("/readingBlog");
+    let data:readingBlogType[] = await dataFetcher("/readingBlog");
     const ReadingBlog = data.map((item: any) => {
       return `<div class="w-full lg:w-[24%] border-solid border-[0.5px] border-black/20 rounded-lg overflow-hidden mt-3">
         <img src="${item.src}" alt="${item.alt}">

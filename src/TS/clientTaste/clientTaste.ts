@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { clientTasteType } from "../global";
 
 const clientTaste = async () => {
   try {
-    let data = await dataFetcher("/clientTaste");
+    let data:clientTasteType[] = await dataFetcher("/clientTaste");
     const ClientTasteItem = data.map((item: any) => {
       return `<div class="w-full md:w-1/2 lg:w-1/4 p-[20px] flex flex-col gap-3">
                 <div class="flex flex-col gap-y-2">

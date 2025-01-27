@@ -12,7 +12,6 @@
 
 <body>
   <!--Project Start-->
-
   <!--header mobile Start-->
   <div class="lg:hidden sticky top-0 left-0 bannerZindex shadow-sm pb-3 bg-white">
     <div class="header__Banner w-full h-[30px] bg-[#CC1335] flex justify-center items-center bannerZindex">
@@ -71,12 +70,11 @@
       <div class="w-full px-[20px]  lg:flex justify-between bg-white HeaderZindexOne relative">
         <div class="p-[10px] flex gap-[10px]">
           <img width="195px" height="30px" src="./Images/SVG/digikalaIcon.svg" alt="Icon">
-          <div class="w-[540px] h-[40px] flex  bg-[#F0F0F1] rounded-lg">
+          <button id="HeaderSearchBar" class="w-[540px] h-[40px] flex  bg-[#F0F0F1] rounded-lg">
             <div class=" h-full w-[50px] flex justify-center items-center"><img src="./public/Images/SVG/SearchIcon.svg"
                 alt="SearchIcon" width="25"></div>
-            <input class="w-full h-full py-2 text-sm bg-[#F0F0F1] rounded-lg outline-none" type="text"
-              name="desktopSearch" id="desktopSearch" placeholder="جستجو">
-          </div>
+            <p class="text-sm leading-[40px] text-black/60">جستجو</p>
+          </button>
         </div>
         <div class="flex gap-4 items-center">
           <div class="w-fit p-[7px] rounded-lg border-solid border-[0.7px] border-black/40 flex items-center gap-1">
@@ -179,7 +177,21 @@
       </div>
     </div>
   </div>
-
+  <div class="fixed top-[115px] bannerZindex w-[100%] h-[100vh] bg-black/40 hidden" id="HeaderSearchBarOverlay"></div>
+  <div class="fixed top-[68px] bannerZindex right-[235px] w-[540px] bg-white shadow-lg rounded-lg hidden"
+    id="HeaderSearchBarContent">
+    <div class="w-[95%] h-[40px] m-auto text-sm"><input id="SearchBarInput" type="text" autofocus
+        class="w-full p-2 focus-within:outline-none" placeholder="جستجو"></div>
+    <span class="w-[95%] h-[1px] bg-[#43C7DF] block m-auto"></span>
+    <div class="w-[95%] m-auto rounded-lg overflow-hidden my-4">
+      <img src="./Images/header/SearchBarIMG.png" alt="SearchBarIMG">
+    </div>
+    <div class="w-[95%] m-auto h-[25px] my-[10px]">
+      <swiper-container class="SearchBarSwiper leading-[50px] h-full" slides-per-view="3.8"
+        space-between="10" free-mode="true">
+      </swiper-container>
+    </div>
+  </div>
   <!--header Desktop End-->
 
   <!--Story Start-->
@@ -242,7 +254,7 @@
       <button id="IconCloseCross"><img src="./public/Images/SVG/Cross.svg" alt="Cross"></button>
     </div>
     <hr>
-    <div class="overflow-y-auto hCustomDigiServicesMobile lg:hCustomDigiServicesDes">
+    <div class="overflow-y-auto hCustomDigiServicesMobile lg:hCustomDigiServicesDes ScrollerCustomIcons">
       <div class="HighlightDigiServeses flex flex-wrap justify-around items-start my-6">
       </div>
       <div class="text-black/50 text-[14px] p-5 font-bold">سرویس های گروه دیجیکالا</div>
@@ -943,15 +955,15 @@
   <!--Footer Mobile End-->
 
   <!--Support Icon Start-->
-  <button id="toggleButton"
+  <button id="SupportButtonToggle"
     class="w-[50px] h-[50px] bg-[#EF4056] hidden md:flex rounded-full fixed bottom-[30px] right-[50px] justify-center items-center">
     <img src="./Images/header/Support.png" alt="Support" width="24" height="24" class="">
   </button>
-  <div id="toggleDiv"
+  <div id="SupporttoggleDiv"
     class="w-[400px] h-[400px] bg-white fixed bottom-[80px] right-[80px] shadow-2xl rounded-xl border-[1px] border-red-600 hidden bannerZindex overflow-hidden">
     <div class="w-full h-[50px] bg-[#EF4156] flex justify-between items-center p-[10px]">
       <div class="text-white font-bold">پشتیبانی آنلاین</div>
-      <img id="closeButton" src="./Images/header/ToLeftArrow.png" alt="Arrow" width="30" height="24"
+      <img id="SupportcloseButton" src="./Images/header/ToLeftArrow.png" alt="Arrow" width="30" height="24"
         class="cursor-pointer">
     </div>
 
@@ -1020,7 +1032,7 @@
   </button>
 
   <div id="overlay"
-    class="w-full h-screen fixed top-0 bg-black opacity-20 bannerZindex flex justify-center items-center hidden"
+    class="w-full h-screen fixed top-0 bg-black opacity-20 bannerZindex  justify-center items-center hidden"
     onclick="togglePopUp()">
   </div>
 
@@ -1064,121 +1076,6 @@
   <script type="module" src="./node_modules/swiper/swiper-element-bundle.min.js"></script>
   <script type="module" src="./src/TS/main.ts"></script>
   <script>
-    const header = document.querySelector('.HeaderZindexTwo');
-    let lastScrollY = window.scrollY;
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > lastScrollY) {
-        header.classList.add('HeaderInimation'); // هنگام اسکرول به پایین، کلاس "hidden" اضافه شود
-      } else {
-        header.classList.remove('HeaderInimation'); // هنگام اسکرول به بالا، کلاس "hidden" حذف شود
-      }
-      lastScrollY = window.scrollY;
-    });
-
-  </script>
-  <script>
-    const swiper = document.querySelector('.storySlider');
-
-    const nextBtn = document.querySelector('.custom-next');
-    const prevBtn = document.querySelector('.custom-prev');
-
-    nextBtn.addEventListener('click', () => {
-      swiper.swiper.slidePrev();
-    });
-
-    prevBtn.addEventListener('click', () => {
-      swiper.swiper.slideNext();
-    });
-  </script>
-  <script>
-    const swiperBrand = document.querySelector('.popularBrandsSwiper');
-
-    const nextBtnBrand = document.querySelector('.custom-nextBrand');
-    const prevBtnBrand = document.querySelector('.custom-prevBrand');
-
-    nextBtnBrand.addEventListener('click', () => {
-      swiperBrand.swiper.slidePrev();
-    });
-
-    prevBtnBrand.addEventListener('click', () => {
-      swiperBrand.swiper.slideNext();
-    });
-  </script>
-  <script>
-    const swiperMostSell = document.querySelector('.mostSellItem');
-
-    const nextBtnMostSell = document.querySelector('.custom-nextMostSell');
-    const prevBtnMostSell = document.querySelector('.custom-prevMostSell');
-
-    nextBtnMostSell.addEventListener('click', () => {
-      swiperMostSell.swiper.slidePrev();
-    });
-
-    prevBtnMostSell.addEventListener('click', () => {
-      swiperMostSell.swiper.slideNext();
-    });
-  </script>
-  <script>
-    const mainSlider = document.querySelector('.mainSlider');
-
-    const nextBtnmainSlider = document.querySelector('.custom-nextmainSlider');
-    const prevBtnmainSlider = document.querySelector('.custom-prevmainSlider');
-
-    nextBtnmainSlider.addEventListener('click', () => {
-      mainSlider.swiper.slidePrev();
-    });
-
-    prevBtnmainSlider.addEventListener('click', () => {
-      mainSlider.swiper.slideNext();
-    });
-
-  </script>
-  <script>
-    const amazingSlider = document.querySelector('.amazingSlider');
-
-    const nextBtnamazingSlider = document.querySelector('.custom-nextamazingSlider');
-    const prevBtnamazingSlider = document.querySelector('.custom-prevamazingSlider');
-
-    nextBtnamazingSlider.addEventListener('click', () => {
-      amazingSlider.swiper.slidePrev();
-    });
-
-    prevBtnamazingSlider.addEventListener('click', () => {
-      amazingSlider.swiper.slideNext();
-    });
-
-  </script>
-  <script>
-    const toggleButton = document.getElementById('toggleButton');
-    const toggleDiv = document.getElementById('toggleDiv');
-    const closeButton = document.getElementById('closeButton');
-    const body = document.body;
-
-    toggleButton.addEventListener('click', () => {
-      toggleDiv.classList.toggle('hidden');
-      // غیرفعال کردن اسکرول هنگام باز شدن
-      if (!toggleDiv.classList.contains('hidden')) {
-        body.style.overflow = 'hidden';
-      } else {
-        body.style.overflow = 'auto';
-      }
-    });
-
-    closeButton.addEventListener('click', () => {
-      toggleDiv.classList.add('hidden');
-      // فعال کردن اسکرول هنگام بسته شدن
-      body.style.overflow = 'auto';
-    });
-
-    function toggleAccordion(contentId, iconId) {
-      const content = document.getElementById(contentId);
-      const icon = document.getElementById(iconId);
-      content.classList.toggle('hidden');
-      icon.classList.toggle('rotate-180');
-    }
-  </script>
-  <script>
     function togglePopUp() {
       const overlay = document.getElementById('overlay');
       const popup = document.getElementById('popup');
@@ -1197,143 +1094,47 @@
     }
   </script>
   <script>
-    const headerToggleButtons = document.querySelectorAll('.HeaderToggleButton');
-    const headerToggleDivs = document.querySelectorAll('.HeaderToggleDiv');
-    const crossButtons = document.querySelectorAll('.CrossButtonHeader');
+    const SupportButtonToggle = document.getElementById('SupportButtonToggle');
+    const SupporttoggleDiv = document.getElementById('SupporttoggleDiv');
+    const SupportcloseButton = document.getElementById('SupportcloseButton');
+    const body = document.body;
 
-    function showDivs() {
-      headerToggleDivs.forEach((div) => div.classList.remove('hidden'));
-      document.body.style.overflow = 'hidden';
-    }
-
-    function hideDivs() {
-      headerToggleDivs.forEach((div) => div.classList.add('hidden'));
-      document.body.style.overflow = 'auto';
-    }
-
-    headerToggleButtons.forEach((button) => {
-      button.addEventListener('click', showDivs);
-    });
-
-    crossButtons.forEach((button) => {
-      button.addEventListener('click', hideDivs);
-    });
-
-    headerToggleDivs.forEach((div) => {
-      div.addEventListener('click', hideDivs);
-    });
-  </script>
-  <script>
-    document.getElementById('IconsToggle').addEventListener('click', () => {
-      const box1 = document.getElementById('ToggleBox1');
-      const box2 = document.getElementById('ToggleBox2');
-
-      // اگر دیوها مخفی هستند، نمایش داده شوند
-      if (box1.classList.contains('hidden') && box2.classList.contains('hidden')) {
-        box1.classList.remove('hidden');
-        box2.classList.remove('hidden');
-      } else {
-        // در غیر این صورت، مخفی شوند
-        box1.classList.add('hidden');
-        box2.classList.add('hidden');
-      }
-    });
-
-    document.getElementById('ToggleBox1').addEventListener('click', (event) => {
+    SupportButtonToggle.addEventListener('click', (event) => {
       event.stopPropagation();
-      const box1 = document.getElementById('ToggleBox1');
-      const box2 = document.getElementById('ToggleBox2');
-      box1.classList.add('hidden');
-      box2.classList.add('hidden');
-    });
-
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('IconsToggle1').addEventListener('click', () => {
-        const box1 = document.getElementById('ToggleBox1');
-        const box2 = document.getElementById('ToggleBox2');
-
-        if (box1.classList.contains('hidden') && box2.classList.contains('hidden')) {
-          box1.classList.remove('hidden');
-          box2.classList.remove('hidden');
-        } else {
-          box1.classList.add('hidden');
-          box2.classList.add('hidden');
-        }
-      });
-
-      document.getElementById('ToggleBox1').addEventListener('click', (event) => {
-        event.stopPropagation();
-        const box1 = document.getElementById('ToggleBox1');
-        const box2 = document.getElementById('ToggleBox2');
-
-        box1.classList.add('hidden');
-        box2.classList.add('hidden');
-      });
-
-      const iconCloseCross = document.getElementById("IconCloseCross");
-      if (iconCloseCross) {
-        iconCloseCross.addEventListener('click', () => {
-          const box1 = document.getElementById('ToggleBox1');
-          const box2 = document.getElementById('ToggleBox2');
-
-          box1.classList.add('hidden');
-          box2.classList.add('hidden');
-        });
+      SupporttoggleDiv.classList.toggle('hidden');
+      if (!SupporttoggleDiv.classList.contains('hidden')) {
+        body.style.overflow = 'hidden';
+      } else {
+        body.style.overflow = 'auto';
       }
     });
-  </script>
-  <script>
-    const menuLink = document.getElementById("menu-link");
-      const overlay = document.getElementById("overlayMenu");
-      const submenu = document.getElementById("submenu");
-      const headerx = document.querySelector(".HeaderZindexTwo"); // انتخاب دیو با کلاس HeaderxZindexTwo
 
-      const scrollIncrement = -1; // میزان افزایش اسکرول (100 پیکسل)
+    SupportcloseButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      closeSupportDiv();
+    });
 
-      // 1. ایونت لیسنر برای `mouseenter` روی `menuLink`
-      menuLink.addEventListener("mouseenter", () => {
-        // غیرفعال کردن اسکرول
-        document.body.style.overflow = "hidden";
+    body.addEventListener('click', () => {
+      if (!SupporttoggleDiv.classList.contains('hidden')) {
+        closeSupportDiv();
+      }
+    });
 
-        // افزایش اسکرول صفحه
-        window.scrollBy(0, scrollIncrement);
+    SupporttoggleDiv.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
 
-        // نمایش منو و overlay
-        overlay.classList.remove("hidden");
-        submenu.classList.remove("hidden");
+    function closeSupportDiv() {
+      SupporttoggleDiv.classList.add('hidden');
+      body.style.overflow = 'auto';
+    }
 
-        // اضافه کردن کلاس CustomTop به HeaderxZindexTwo
-        headerx.classList.add("CustomTop");
-      });
-
-      // 2. ایونت لیسنر برای `mouseleave` روی `overlay`
-      overlay.addEventListener("mouseleave", () => {
-        // فعال کردن مجدد اسکرول
-        document.body.style.overflow = "auto";
-
-        // پنهان کردن منو و overlay
-        overlay.classList.add("hidden");
-        submenu.classList.add("hidden");
-
-        // حذف کلاس CustomTop از HeaderxZindexTwo
-        headerx.classList.remove("CustomTop");
-      });
-
-      // 3. ایونت لیسنر برای `mouseleave` روی `submenu`
-      submenu.addEventListener("mouseleave", () => {
-        // فعال کردن مجدد اسکرول
-        document.body.style.overflow = "auto";
-
-        // پنهان کردن منو و overlay
-        overlay.classList.add("hidden");
-        submenu.classList.add("hidden");
-
-        // حذف کلاس CustomTop از HeaderxZindexTwo
-        headerx.classList.remove("CustomTop");
-      });
-
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+      content.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    }
 
   </script>
 </body>

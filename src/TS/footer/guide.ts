@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { GuideType } from "../global";
 
 const guide = async (): Promise<void> => {
   try {
-    let data = await dataFetcher("/guide");
+    let data:GuideType[] = await dataFetcher("/guide");
     const items = data.map((item: any) => {
       return (
         `<a class="text-[#82858B]" href="${item.href}">

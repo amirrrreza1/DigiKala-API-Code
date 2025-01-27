@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { PopularCityType } from "../global";
 
 const popularCities = async () => {
   try {
-    let data = await dataFetcher("/popularCities");
+    let data:PopularCityType[] = await dataFetcher("/popularCities");
     const PopularCities = data.map((item: any) => {
       return `<swiper-slide class="border-[1px] border-black/40 rounded-xl flex justify-center items-center gap-1 mx-1 text-[14px]">
       ${item.text}

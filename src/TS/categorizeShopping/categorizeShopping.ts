@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { categorizeShoppingType } from "../global";
 
 const categorizeShopping = async () => {
     try {
-    let data = await dataFetcher("/categorizeShopping");
+    let data:categorizeShoppingType[] = await dataFetcher("/categorizeShopping");
         const CategorizeShoppingItem = data.map((item: any) => {
           return `<div class="w-[25%] lg:w-[20%] xl:w-[12.5%] flex flex-col justify-between
        items-center gap-[10px]">

@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { AmazingSliderType } from "../global";
 
 const amazingSlider = async () => {
   try {
-    let data = await dataFetcher("/amazingSlider");
+    let data:AmazingSliderType[] = await dataFetcher("/amazingSlider");
     const amazingSliderItem = data
       .map((item: any) => {
         return `<swiper-slide class="bg-white flex flex-col items-center">

@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { iconsType } from "../global";
 
 const iconItems = async (): Promise<void> => {
   try {
-    let data = await dataFetcher("/icons");
+    let data : iconsType[] = await dataFetcher("/icons");
     const iconItems = data
       .map((item: any) => {
         return `<a href="#"

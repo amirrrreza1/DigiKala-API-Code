@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { storySliderType } from "../global";
 
 const storySlider = async (): Promise<void> => {
   try {
-    let data = await dataFetcher("/storySlider");
+    let data:storySliderType[] = await dataFetcher("/storySlider");
     const slides = data.map((item: any) => {
       return `<swiper-slide class="w-full p-[10px] flex flex-col justify-center items-center gap-[10px]">
                     <div class="p-[2.5px]  bg-gradient-to-r from-[#e03d96] to-[#7d4c9e] w-fit rounded-full">

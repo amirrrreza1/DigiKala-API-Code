@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { MegaMenuItemType } from "../global";
 
 const megaMenu = async () => {
   try {
-    let data = await dataFetcher("/megaMenu");
+    let data:MegaMenuItemType[] = await dataFetcher("/megaMenu");
 
     // ساخت HTML برای آیتم‌های منو
     const Items = data.map((item: any, index: number) => {

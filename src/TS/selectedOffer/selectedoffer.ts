@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { selectedOfferType } from "../global";
 
 const selectedOffer = async () => {
   try {
-    let data = await dataFetcher("/selectedOffer");
+    let data:selectedOfferType[] = await dataFetcher("/selectedOffer");
     const SelectedOffer = data.map((item: any) => {
       return `<div class="w-[50%] lg:w-[20%] 2xl:w-[16.5%] p-3 border-r-[1px] border-b-[1px]">
           <div class="w-full flex justify-center items-center"><img width="150px" height="150px" src="${item.src}"

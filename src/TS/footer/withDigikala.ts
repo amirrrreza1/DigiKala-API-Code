@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { WithDigikalaType } from "../global";
 
 const withDigikala = async (): Promise<void> => {
   try {
-    let data = await dataFetcher("/withDigikala");
+    let data: WithDigikalaType[] = await dataFetcher("/withDigikala");
     const items = data.map((item: any) => {
       return (
         `<a class="text-[#82858B]" href="${item.href}">

@@ -40,7 +40,7 @@
     transition-delay: 80ms;
   }
   .HeaderInimation {
-    top: 0px !important ;  /* حالت مخفی */
+    top: 0px !important ; /* حالت مخفی */
   }
 
   .HeaderZindexOne {
@@ -312,7 +312,8 @@ html::-webkit-scrollbar,
 #item-details::-webkit-scrollbar,
 #categories-list::-webkit-scrollbar,
 #CityScrollCustom::-webkit-scrollbar,
-#SupportScroolCustom::-webkit-scrollbar {
+#SupportScroolCustom::-webkit-scrollbar,
+.ScrollerCustomIcons::-webkit-scrollbar {
   width: 9px;
   height: 10px;
 }
@@ -320,7 +321,7 @@ html::-webkit-scrollbar,
 html::-webkit-scrollbar-button #item-details::-webkit-scrollbar-button,
 #categories-list::-webkit-scrollbar-button,
 #CityScrollCustom::-webkit-scrollbar-button,
-#SupportScroolCustom::-webkit-scrollbar-button {
+#SupportScroolCustom::-webkit-scrollbar-button , .ScrollerCustomIcons::-webkit-scrollbar-button {
   display: none;
 }
 
@@ -328,7 +329,7 @@ html::-webkit-scrollbar-thumb,
 #item-details::-webkit-scrollbar-thumb,
 #categories-list::-webkit-scrollbar-thumb,
 #CityScrollCustom::-webkit-scrollbar-thumb,
-#SupportScroolCustom::-webkit-scrollbar-thumb {
+#SupportScroolCustom::-webkit-scrollbar-thumb , .ScrollerCustomIcons::-webkit-scrollbar-thumb {
   background-color: #9b9b9b;
 }
 
@@ -336,6 +337,6 @@ html::-webkit-scrollbar-track,
 #item-details::-webkit-scrollbar-track,
 #categories-list::-webkit-scrollbar-track,
 #CityScrollCustom::-webkit-scrollbar-track,
-#SupportScroolCustom::-webkit-scrollbar-track {
+#SupportScroolCustom::-webkit-scrollbar-track ,.ScrollerCustomIcons::-webkit-scrollbar-track {
   background-color: #cfcece;
 }

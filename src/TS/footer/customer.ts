@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { CustomerType } from "../global";
 
 const customer = async (): Promise<void> => {
   try {
-    let data = await dataFetcher("/customer");
+    let data:CustomerType[] = await dataFetcher("/customer");
     const items = data.map((item: any) => {
       return (
         `<a class="text-[#82858B]" href="${item.href}">

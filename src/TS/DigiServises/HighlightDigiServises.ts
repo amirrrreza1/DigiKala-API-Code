@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { HighlightDigiServiceType } from "../global";
 
 const HighlightDigiServeses = async () => {
   try {
-    let data = await dataFetcher("/HighlightDigiSevices");
+    let data: HighlightDigiServiceType[] = await dataFetcher("/HighlightDigiSevices");
     const HighlightDigiServeses = data.map((item: any , index:Number) => {
         return `
       <div class="w-[80px] flex flex-col justify-center items-center gap-2 cursor-pointer mb-2">

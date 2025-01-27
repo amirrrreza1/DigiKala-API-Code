@@ -1,8 +1,9 @@
 import dataFetcher from "../dataFetcher";
+import { DigiServeseTypec } from "../global";
 
 const allDigiServices = async () => {
   try {
-    let data = await dataFetcher("/DigiServesec");
+    let data:DigiServeseTypec[] = await dataFetcher("/DigiServesec");
     const allDigiServices = data.map((item: any, index: Number) => {
       return `
       <div class=" w-[96%] lg:w-[48%] m-auto flex justify-between items-center p-3 border-[1px] border-[#B7BBBE] rounded-xl mb-3 cursor-pointer">
