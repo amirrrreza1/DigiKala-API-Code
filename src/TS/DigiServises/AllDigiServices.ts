@@ -3,9 +3,10 @@ import { DigiServeseTypec } from "../global";
 
 const allDigiServices = async () => {
   try {
-    let data:DigiServeseTypec[] = await dataFetcher("/DigiServesec");
-    const allDigiServices = data.map((item: any, index: Number) => {
-      return `
+    let data = await dataFetcher("/DigiServesec");
+    const allDigiServices = data.map(
+      (item: DigiServeseTypec, index: Number) => {
+        return `
       <div class=" w-[96%] lg:w-[48%] m-auto flex justify-between items-center p-3 border-[1px] border-[#B7BBBE] rounded-xl mb-3 cursor-pointer">
         <div class="flex justify-center items-center gap-3">
           <img src="${item.src}" alt="allServices ${index}" width="52">
@@ -14,7 +15,8 @@ const allDigiServices = async () => {
         <img src="./Images/SVG/ToleftFlash.svg" alt="flash" class="h-[20px]">
       </div>
       `;
-    });
+      }
+    );
 
     const container = document.querySelector(".allDigiServices");
     if (container) {

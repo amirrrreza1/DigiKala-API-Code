@@ -6,9 +6,9 @@ const handleScroll = (): void => {
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > lastScrollY) {
-      header.classList.add("HeaderInimation"); // هنگام اسکرول به پایین، کلاس اضافه شود
+      header.classList.add("HeaderInimation");
     } else {
-      header.classList.remove("HeaderInimation"); // هنگام اسکرول به بالا، کلاس حذف شود
+      header.classList.remove("HeaderInimation");
     }
     lastScrollY = window.scrollY;
   });

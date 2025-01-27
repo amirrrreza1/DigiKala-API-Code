@@ -3,8 +3,8 @@ import { FeaturesType } from "../global";
 
 const features = async (): Promise<void> => {
   try {
-    let data: FeaturesType[] = await dataFetcher("/features");
-    const items = data.map((item: any) => {
+    let data = await dataFetcher("/features");
+    const items = data.map((item: FeaturesType) => {
       return `<div class="w-[20%] flex flex-col justify-center items-center">
                 <img src="${item.src}" alt="${item.alt}">
                 <div class="text-black/70 text-[13px]">${item.text}</div>

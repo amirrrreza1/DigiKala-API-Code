@@ -3,8 +3,8 @@ import { clientTasteType } from "../global";
 
 const clientTaste2 = async () => {
   try {
-    let data:clientTasteType[] = await dataFetcher("/clientTaste2");
-    const ClientTaste2Item = data.map((item: any) => {
+    let data = await dataFetcher("/clientTaste2");
+    const ClientTaste2Item = data.map((item: clientTasteType) => {
       return `<div class="w-full md:w-1/2 lg:w-1/4 p-[20px] flex flex-col gap-3">
                 <div class="flex flex-col gap-y-2">
                     <div class="">${item.category}</div>

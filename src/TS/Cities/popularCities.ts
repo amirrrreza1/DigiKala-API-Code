@@ -3,8 +3,8 @@ import { PopularCityType } from "../global";
 
 const popularCities = async () => {
   try {
-    let data:PopularCityType[] = await dataFetcher("/popularCities");
-    const PopularCities = data.map((item: any) => {
+    let data= await dataFetcher("/popularCities");
+    const PopularCities = data.map((item: PopularCityType) => {
       return `<swiper-slide class="border-[1px] border-black/40 rounded-xl flex justify-center items-center gap-1 mx-1 text-[14px]">
       ${item.text}
         <img src="./Images/SVG/ToRightIcon.svg" alt="to left" width="15">

@@ -3,9 +3,9 @@ import { AmazingSliderType } from "../global";
 
 const amazingSlider = async () => {
   try {
-    let data:AmazingSliderType[] = await dataFetcher("/amazingSlider");
+    let data = await dataFetcher("/amazingSlider");
     const amazingSliderItem = data
-      .map((item: any) => {
+      .map((item: AmazingSliderType) => {
         return `<swiper-slide class="bg-white flex flex-col items-center">
         <img width="170px" height="170px" class="p-[10px]" src="${item.src}" alt="${item.alt}">
         <div class="h-[40px] leading-[20px] text-[12px] text-black/70 line-clamp-2 m-[10px]">${item.text}</div>

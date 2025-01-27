@@ -3,15 +3,17 @@ import { HighlightDigiServiceType } from "../global";
 
 const HighlightDigiServeses = async () => {
   try {
-    let data: HighlightDigiServiceType[] = await dataFetcher("/HighlightDigiSevices");
-    const HighlightDigiServeses = data.map((item: any , index:Number) => {
+    let data = await dataFetcher("/HighlightDigiSevices");
+    const HighlightDigiServeses = data.map(
+      (item: HighlightDigiServiceType, index: Number) => {
         return `
       <div class="w-[80px] flex flex-col justify-center items-center gap-2 cursor-pointer mb-2">
         <img src="${item.src}" alt="HighlightDigiServeses ${index}" width="52">
         <div class="text-center text-[12px] w-full lg:w-[70%] m-auto">${item.text}</div>
       </div>
       `;
-    });
+      }
+    );
 
     const container = document.querySelector(".HighlightDigiServeses");
     if (container) {

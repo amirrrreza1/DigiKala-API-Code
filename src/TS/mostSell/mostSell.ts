@@ -1,10 +1,10 @@
 import dataFetcher from "../dataFetcher";
-import { mostPopularBrandsType } from "../global";
+import { MostSellType } from "../global";
 
 const mostSell = async () => {
   try {
-    let data: mostPopularBrandsType[] = await dataFetcher("/mostSell");
-    const MostSell = data.map((item: any) => {
+    let data = await dataFetcher("/mostSell");
+    const MostSell = data.map((item: MostSellType) => {
       return `<swiper-slide>
                     <div class="flex justify-between items-center gap-x-3 p-[15px]">
                         <img width="80px" height="80px" src="${item.src}" alt="${item.alt}">

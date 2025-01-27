@@ -6,7 +6,6 @@ export function setupSuperMarketPopUp(): void {
       const text = popup.querySelector(".text-white") as HTMLDivElement;
 
       if (window.scrollY > 400) {
-        // اضافه کردن تگ جدید بین متن و عکس
         let extraTag = popup.querySelector(".extra-tag") as HTMLDivElement;
         if (!extraTag) {
           extraTag = document.createElement("div");
@@ -19,17 +18,13 @@ export function setupSuperMarketPopUp(): void {
           popup.insertBefore(extraTag, text);
         }
 
-        // تغییر استایل‌ها برای نمایش مناسب
         popup.style.width = "280px";
         popup.style.flexDirection = "row-reverse";
       } else {
-        // حذف تگ اضافه شده و بازگشت به حالت اولیه
         const extraTag = popup.querySelector(".extra-tag") as HTMLDivElement;
         if (extraTag) {
           extraTag.remove();
         }
-
-        // بازگشت طول و استایل‌ها به حالت اولیه
         popup.style.width = "130px";
         popup.style.height = "50px";
         popup.style.flexDirection = "row-reverse";

@@ -3,8 +3,8 @@ import { storySliderType } from "../global";
 
 const storySlider = async (): Promise<void> => {
   try {
-    let data:storySliderType[] = await dataFetcher("/storySlider");
-    const slides = data.map((item: any) => {
+    let data= await dataFetcher("/storySlider");
+    const slides = data.map((item: storySliderType) => {
       return `<swiper-slide class="w-full p-[10px] flex flex-col justify-center items-center gap-[10px]">
                     <div class="p-[2.5px]  bg-gradient-to-r from-[#e03d96] to-[#7d4c9e] w-fit rounded-full">
                         <div class="w-[74px] h-[74px] bg-white p-[3px] rounded-full">

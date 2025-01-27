@@ -3,11 +3,11 @@ import { selectedOfferType } from "../global";
 
 const selectedOffer = async () => {
   try {
-    let data:selectedOfferType[] = await dataFetcher("/selectedOffer");
-    const SelectedOffer = data.map((item: any) => {
+    let data = await dataFetcher("/selectedOffer");
+    const SelectedOffer = data.map((item: selectedOfferType) => {
       return `<div class="w-[50%] lg:w-[20%] 2xl:w-[16.5%] p-3 border-r-[1px] border-b-[1px]">
           <div class="w-full flex justify-center items-center"><img width="150px" height="150px" src="${item.src}"
-              alt="${item.alt}"></div>
+              alt="SelectedOffer${item.id}"></div>
           <div class="flex justify-between items-center w-[85%] m-auto">
             <div class="bg-[#D2334A] px-2 py-[2px] rounded-2xl text-white">
               ${item.offPercent}

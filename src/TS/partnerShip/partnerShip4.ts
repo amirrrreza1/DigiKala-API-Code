@@ -3,8 +3,8 @@ import { partnerShipType } from "../global";
 
 const partnerShip4 = async () => {
   try {
-    let data:partnerShipType[] = await dataFetcher("/partnerShip4");
-    const PartnerShip4 = data.map((item: any) => {
+    let data= await dataFetcher("/partnerShip4");
+    const PartnerShip4 = data.map((item: partnerShipType) => {
       return `<img src="${item.src}" alt="${item.alt}">`;
     });
 

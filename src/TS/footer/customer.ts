@@ -3,13 +3,11 @@ import { CustomerType } from "../global";
 
 const customer = async (): Promise<void> => {
   try {
-    let data:CustomerType[] = await dataFetcher("/customer");
-    const items = data.map((item: any) => {
-      return (
-        `<a class="text-[#82858B]" href="${item.href}">
+    let data = await dataFetcher("/customer");
+    const items = data.map((item: CustomerType) => {
+      return `<a class="text-[#82858B]" href="${item.href}">
           ${item.text}
-        </a>`
-      );
+        </a>`;
     });
 
     document.querySelector(".customer")!.innerHTML = items.join("");

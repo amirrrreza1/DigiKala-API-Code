@@ -4,8 +4,8 @@ import { readingBlogType   } from "../global";
 
 const readingBlog = async () => {
   try {
-    let data:readingBlogType[] = await dataFetcher("/readingBlog");
-    const ReadingBlog = data.map((item: any) => {
+    let data = await dataFetcher("/readingBlog");
+    const ReadingBlog = data.map((item: readingBlogType) => {
       return `<div class="w-full lg:w-[24%] border-solid border-[0.5px] border-black/20 rounded-lg overflow-hidden mt-3">
         <img src="${item.src}" alt="${item.alt}">
         <div class="text-[12px] p-3 h-[60px] flex justify-center items-center">${item.text}</div>

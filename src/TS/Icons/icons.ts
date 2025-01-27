@@ -3,9 +3,9 @@ import { iconsType } from "../global";
 
 const iconItems = async (): Promise<void> => {
   try {
-    let data : iconsType[] = await dataFetcher("/icons");
+    let data = await dataFetcher("/icons");
     const iconItems = data
-      .map((item: any) => {
+      .map((item: iconsType) => {
         return `<a href="#"
         class="w-[20%] lg:w-[10%] md:w-[18%] h-fit p-[20px] flex justify-between items-center flex-col gap-y-2">
         <img width="52px" height="52px" src="${item.src}" alt="${item.alt}">

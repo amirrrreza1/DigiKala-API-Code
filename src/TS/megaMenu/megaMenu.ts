@@ -3,10 +3,9 @@ import { MegaMenuItemType } from "../global";
 
 const megaMenu = async () => {
   try {
-    let data:MegaMenuItemType[] = await dataFetcher("/megaMenu");
+    let data = await dataFetcher("/megaMenu");
 
-    // ساخت HTML برای آیتم‌های منو
-    const Items = data.map((item: any, index: number) => {
+    const Items = data.map((item: MegaMenuItemType, index: number) => {
       return `
       <div class="flex justify-start items-center p-1 ${
         index === 0
@@ -22,7 +21,6 @@ const megaMenu = async () => {
 
     document.querySelector(".MegaMenuItems")!.innerHTML = Items.join("");
 
-    // گرفتن المان item-details
     const itemDetailsDiv = document.getElementById("item-details");
 
     const setActiveItem = (index: number) => {
@@ -77,7 +75,6 @@ const megaMenu = async () => {
       itemDetailsDiv.innerHTML = "";
       itemDetailsDiv.appendChild(newSection);
 
-      // مدیریت هاور برای تصاویر کلاس arrow-icon
       const boldtextContainers = itemDetailsDiv.querySelectorAll(
         ".boldtext-container"
       );
@@ -93,16 +90,13 @@ const megaMenu = async () => {
       });
     };
 
-    // نمایش پیش‌فرض آیتم اول
     setActiveItem(0);
     renderDetails(data[0]);
 
-    // افزودن Event Listener برای هر آیتم
     data.forEach((item: any, index: number) => {
       const element = document.getElementById(`item-${index}`);
 
       element?.addEventListener("mouseenter", () => {
-        // تنظیم آیتم جدید به عنوان active
         setActiveItem(index);
         renderDetails(item);
       });

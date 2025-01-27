@@ -2,8 +2,8 @@ import dataFetcher from "../dataFetcher";
 import { AllCityType } from "../global";
 const allCities = async () => {
   try {
-    let data:AllCityType[] = await dataFetcher("/allCities");
-    const AllCities = data.map((item: any) => {
+    let data  = await dataFetcher("/allCities");
+    const AllCities = data.map((item: AllCityType) => {
       return `        <div class="city-item text-[16px]  flex justify-between items-center cursor-pointer" data-city="${item.city}" data-area="${item.area}">
           <div class="">${item.area} <span class="text-black/60">در ${item.city}</span>
           </div>
@@ -40,8 +40,8 @@ const allCities = async () => {
             deliveryDiv.textContent = textContent;
           });
 
-          HeaderToggleDiv1?.classList.add("hidden"); // پنهان کردن دیو اول
-          HeaderToggleDiv2?.classList.add("hidden"); // پنهان کردن دیو دوم
+          HeaderToggleDiv1?.classList.add("hidden");
+          HeaderToggleDiv2?.classList.add("hidden");
         });
       });
     } else {

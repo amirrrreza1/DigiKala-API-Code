@@ -3,13 +3,11 @@ import { WithDigikalaType } from "../global";
 
 const withDigikala = async (): Promise<void> => {
   try {
-    let data: WithDigikalaType[] = await dataFetcher("/withDigikala");
-    const items = data.map((item: any) => {
-      return (
-        `<a class="text-[#82858B]" href="${item.href}">
+    let data = await dataFetcher("/withDigikala");
+    const items = data.map((item: WithDigikalaType) => {
+      return `<a class="text-[#82858B]" href="${item.href}">
           ${item.text}
-        </a>`
-      );
+        </a>`;
     });
 
     document.querySelector(".withDigikala")!.innerHTML = items.join("");
